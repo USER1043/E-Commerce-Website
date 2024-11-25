@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Extras</title>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nav.css">
+    <style>
+        .btn{
+    min-width: 30vw;
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    transition: min-width 0.15s, font-size 0.15s;
+    cursor: pointer;
+}
+
+.btn:hover{
+    min-width: 32vw;
+    font-size: 2rem;
+}
+      </style>
+    <script src="https://kit.fontawesome.com/f84acd84a0.js" crossorigin="anonymous"></script>
+</style>
+<script src="https://kit.fontawesome.com/f84acd84a0.js" crossorigin="anonymous"></script>
+  <style>
+      * {box-sizing: border-box;}
+      body {font-family: Verdana, sans-serif;}
+      .mySlides {display: none;}
+      img {vertical-align: middle;}
+      
+      
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+      
+      
+      .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+      
+      
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      
+      
+      .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      
+      .active {
+        background-color: #717171;
+      }
+      
+      
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+      
+
+      @media only screen and (max-width: 300px) {
+        .text {font-size: 11px}
+      }
+      </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo">
+                    <img src="logo.jpg" alt="logo" width="50px" height="50px">
+                    <a href="#" >Learning Tree</a></div>
+                <ul>
+                    <li><i class="fa-solid fa-house"></i><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><i class="fa-solid fa-cart-shopping"></i><a href="cart.html">Cart</a></li>
+                    <li><i class="fa-solid fa-user"></i><a href="profile.html">Profile</a></li>
+                    <li><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="logout.html">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div style="width: 100vw; height: 20vh; background-color: rgb(188, 21, 21);">
+            <img src="logo1.png" style="position: absolute;top: 7vh;left: 35vw;" width="150vw" height="150vh">
+            <p style="position: absolute; top: -05vh; left: 45vw; color: white; font-size: 7vw; font-family:'Times New Roman', Times, serif;">Extras</p>
+        </div>
+        <br>
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <img src="https://i.ytimg.com/vi/M8k1U3vk5RE/maxresdefault.jpg" width="1000vw" height="450vh">
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="https://images.thequint.com/thequint%2F2016-06%2Fbd274703-1c83-4f68-9e33-641df8e8494e%2Fcamlin.jpg" width="1000vw" height="450vh">
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="https://www.adgully.com/img/400/201709/faber-castell-logo.png.jpg" width="1000vw" height="450vh">
+            </div>
+            <div class="mySlides fade">
+              <img src="https://i.ytimg.com/vi/ipDr8tu8uTY/maxresdefault.jpg" width="1000vw" height="450vh">
+            </div>
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span>
+              <span class="dot"></span> 
+            </div>
+            
+            <script>
+            let slideIndex = 0;
+            showSlides();
+            
+            function showSlides() {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1}    
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+              setTimeout(showSlides, 5000);
+            }
+            </script>
+            <br/>
+            <hr size="5px" color="red"/>
+            <a href="" target="_self">
+            <img class="btn" src="https://5.imimg.com/data5/TK/FH/HM/SELLER-22950714/stapler-machine-no-10.jpg" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 52vw; left: 10vh;" >
+            <p style="position: absolute; top: 77vw; left: 25vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Kangaro stapler-machine-no-10<br/>
+                rs:30</p>
+        </a>
+        <a href="" target="_self">
+      <img class="btn" src="https://images.jdmagicbox.com/quickquotes/images_main/stapler-pin-376299363-nkj1z.jpg" atl="Pen_home" width="400vw" height="400vh" style="position: absolute; top: 52vw; left: 75vh;" >
+      <p style="position: absolute; top: 77vw; left: 88vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Kangaro stapler pins<br/>rs:10</p>
+    </a>
+        <a href="" target="_self">
+      <img class="btn" src="https://clickere.in/cdn/shop/products/Doms-Neon-Eraser_580x.jpg?v=1698477768" atl="Pencil_home" width="380vw" height="380vh" style="position: absolute; top: 54vw; left: 130vh;" >
+      <p style="position: absolute; top: 77vw; left: 145vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Doms Neon Eraser<br/>rs:5</p>
+    </a>
+
+    <a href="" target="_self">
+        <img class="btn" src="https://rukminim2.flixcart.com/image/850/1000/knyxqq80/sharpener/a/p/c/erasener-eraser-sharpener-doms-original-imag2j72quhzzfcr.jpeg?q=90&crop=false" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 85vw; left: 8vh;" >
+        <p style="position: absolute; top: 110vw; left: 25vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Doms 2 in 1 (Eraser and Sharpner)<br/>
+            rs:20</p>
+    </a>
+    <a href="" target="_self">
+  <img class="btn" src="https://www.carrydor.com/image/cache/catalog/Stationery/classmate-invento-geometry-box-i-unit-2-550x550.jpg" atl="Pen_home" width="400vw" height="400vh" style="position: absolute; top: 85vw; left: 75vh;" >
+  <p style="position: absolute; top: 110vw; left: 88vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Classmate Geometry Box<br/>rs:40</p>
+</a>
+    <a href="" target="_self">
+  <img class="btn" src="https://cdn.saharmall.com/Upload//10015//Products//s_637576095938041669_72882.jpg" atl="Pencil_home" width="380vw" height="380vh" style="position: absolute; top: 85vw; left: 130vh;" >
+  <p style="position: absolute; top: 110vw; left: 145vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Classmate Ruler 30cms<br/>rs:10</p>
+</a>
+
+
+<a href="" target="_self">
+  <img class="btn" src="https://gvbooks.in/wp-content/uploads/2023/09/Precision-Scale-Classmate-15-CM.jpg" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 120vw; left: 10vh;" >
+  <p style="position: absolute; top: 143vw; left: 25vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Classmate ruler 15cms<br/>
+      rs:5</p>
+</a>
+<a href="" target="_self">
+<img class="btn" src="https://www.schooltech.in/image/cache/products/dec20/8901425072875_1-1400x1400.jpg" atl="Pen_home" width="400vw" height="400vh" style="position: absolute; top: 120vw; left: 75vh;" >
+<p style="position: absolute; top: 143vw; left: 88vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Camlin Kokuyo Cello Tape<br/>rs:15</p>
+</a>
+<a href="" target="_self">
+<img class="btn" src="https://rukminim2.flixcart.com/image/850/1000/kpsnzww0/art-set/w/x/n/fevicol-craft-and-general-adhesives-2-fevistik-15gm-2-fevicol-mr-original-imag3y5wms4trmeh.jpeg?q=20&crop=false" atl="Pencil_home" width="380vw" height="380vh" style="position: absolute; top: 120vw; left: 130vh;" >
+<p style="position: absolute; top: 143vw; left: 145vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Fevicol Set<br/>rs:30</p>
+</a>
+
+
+<a href="" target="_self">
+  <img class="btn" src="https://doodlebugswa.com/cdn/shop/files/part-a-glitz-art-craft-co-ltd-tools-fine-blade-scissors-30901067022439_1800x1800_4c302a89-e53c-4a77-9f52-f2feebb573c6_large.jpg?v=1688104540" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 150vw; left: 75vh;" >
+  <p style="position: absolute; top: 173vw; left: 90vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Altenew Scissors<br/>
+      rs:20</p>
+    </body>
+    <body>
+      <div style="position: absolute; top: 180vw; left: 0; width: 100vw; height: 25vw; background-color: rgb(108, 112, 112); margin-bottom: 20px;">
+        <p style="position: absolute; top: 0vw; left: 0vh; color: white;">About us</p>
+        <p style="position: absolute; top: 2vw; left: 0vh; color: black;"><a href="TermsAndConditions.html" target="_blank">Terms and Conditions</a></p>
+        <p style="position: absolute; top: 0vw; left: 25vh; color: white;">Help</p>
+        <p style="position: absolute; top: 2vw; left: 25vh; color: black;">Phone Number: 6374408650</p>
+        <p style="position: absolute; top: 4vw; left: 25vh; color: black;">Email ID: learningtree@gmail.com</p>
+        <p style="position: absolute; top: 0vw; left: 65vh; color: white;">Take me to</p>
+        <p style="position: absolute; top: 2vw; left: 65vh; color: black;"><a href="" target="_self">Home Page</a></p>
+        <p style="position: absolute; top: 4vw; left: 65vh; color: black;"><a href="" target="_self">Books</a></p>
+        <p style="position: absolute; top: 6vw; left: 65vh; color: black;"><a href="Homepage.html" target="_self">Stationeries</a></p>
+        <p style="position: absolute; top: 8vw; left: 65vh; color: black;"><a href="" target="_self">Purchase page</a></p>
+        <p style="position: absolute; top: 10vw; left: 0vh; color: white;">Learning Tree</p>
+        <p style="position: absolute; top: 12vw; left: 0vh; color: black;">Welcome to Learning Tree, your one-stop e-commerce solution for all school stationery needs. We specialize in providing a wide range of high-quality stationery items tailored for school
+        students. Our platform is designed with a user-friendly interface to ensure a seamless shopping experience. Please note that only authorized sellers are permitted to sell on our platform to
+        maintain the quality and authenticity of the products. Dive into our diverse collection and find everything your school-going child needs, all under one roof.</p>
+        <p style="position: absolute; top: 17vw; left: 6vh;"><a href="https://media.tenor.com/fm4u-L3RJjMAAAAe/cat-thousand-yard-stare-thousand-yard-stare.png" target="_blank">Instagram</a></p>
+        <p style="position: absolute; top: 17vw; left: 21vh;"><a href="https://us-tuna-sounds-images.voicemod.net/d0c4328b-ed35-4fb6-a235-55089303ead7-1702878158194.jpeg" target="_blank">Whatsapp</a></p>
+        <p style="position: absolute; top: 17vw; left: 36.5vh;"><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQek7u-yoh6vM9WVDGQlk7JxwcOTQ19y70Z4qa5ZFLNHw&s"target="_blank">Facebook</a></p>
+        <p style="position: absolute; top: 17vw; left: 51.5vh;"><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMBBdBEv0nqlZ5shcqMmK9eMKbC2-5ESMMhdZIMjejwA&s"target="_blank">X(Twitter)</a></p>
+        <p style="position: absolute; top: 1vw; left: 110vh; color: white; font-size: 3vw; font-family: 'Times New Roman', Times, serif;">Learning Tree</p>
+          <img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="Instagram logo" style="position: absolute; top: 18vw; left: 3vh;" width="20vw" height="20vh">
+          <img src="https://w7.pngwing.com/pngs/814/699/png-transparent-black-and-white-whatsapp-logo-whatsapp-social-media-computer-icons-plug-in-what-app-icon-logo-plugin-text-messaging.png" alt="Whatsapp logo" style="position: absolute; top: 18vw; left: 18vh;" width="20vw" height="20vh">
+          <img src="https://e7.pngegg.com/pngimages/634/843/png-clipart-facebook-logo-computer-icons-facebook-facebook-computer-logo.png" alt="Facebook logo" style="position: absolute; top: 18vw; left: 33vh;" width="20vw" height="20vh">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR74I4QHl-ZMe_jA26bE5yjhi_lfie7Fm1YLzDH3nu492sBYvYmb3730J7K7-5eg278LVw&usqp=CAU" alt="X logo" style="position: absolute; top: 18vw; left: 48vh;" width="20vw" height="20vh">
+          <img src="logo1.png" alt="logo" style="position: absolute; top: 02vh; left: 47vw; width: 8vw; height: 15vh;">
+          </div>
+    </body>
+</html>
