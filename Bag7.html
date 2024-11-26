@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            padding-top: 80px; 
+            padding-bottom: 80px; 
+            margin: 0;
+            box-sizing: border-box;
+            overflow-y: scroll; 
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .main-content {
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            height: calc(150% - 160px); 
+        }
+
+        .main-image-container {
+            position: relative;
+            overflow: hidden;
+            width: 300px; 
+            height: 400px; 
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .small-img-group{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+              
+        }
+
+        .small-img-col{
+            float: left;
+            flex-basis: 24%;
+            cursor: pointer;
+            margin-right: 5px;
+            width: 80px; 
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .small-img-col img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .sproduct input{
+           width: 30px; 
+           height: 20px;
+           padding-left: 10px;
+           font-size: 16px;
+           margin-right: 10px;
+        }
+
+        .sproduct input:focus{
+            outline: none;
+        }
+
+        .sproduct input[type="number"] {
+            width: 60px;
+            height: 30px; 
+            padding-left: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .buy-btn {
+           background: red;
+           opacity: 1;
+           color: white; 
+           border-radius: 20px; 
+           padding: 8px 20px;
+           border: none;
+           cursor: pointer;
+           transition: background-color 0.3s; 
+        }
+
+        .buy-btn:hover {
+            background-color: darkred; 
+        }
+
+
+        .product-detail{
+            line-height: 2;
+        }
+
+        body {
+            padding-left: 20px; 
+            padding-right: 20px; 
+        }
+
+        .stars {
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .star {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .star.empty {
+            color: #ccc;
+        }
+
+        .Stars .Star {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .product-rating {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .product-review {
+            margin-bottom: 20px;
+        }
+
+        #comment-form {
+            width: 500px; 
+            max-width: 100%;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px; 
+            border: none; 
+            overflow: hidden;
+            
+        }
+
+        #comment {
+            width: calc(100% - 20px); 
+            height: 100px; 
+            resize: vertical;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: none; 
+            border-radius: 5px;
+            background-color: #f0ecec; 
+            box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+        }
+
+        #comment-form button {
+            padding: 8px 20px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+
+        #comment-form button:hover {
+            background-color: darkred;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: red;
+            color: #fff;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav {
+            padding: 10px;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            background-color: red;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a i {
+            margin-right: 5px;
+        }
+
+        nav ul li a:hover {
+            color: #fff; 
+            background-color: darkred; 
+        }
+
+        .back-to-top {
+            color: #fff; 
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: rgb(55, 33, 33);
+            transition: background-color 0.3s; 
+            outline: none; 
+            box-shadow: none; 
+        }
+
+        .back-to-top:hover {
+            color: #fff; 
+            background-color: darkred;
+        }
+
+        .back-to-top:focus, 
+        .back-to-top:active {
+            outline: none; 
+            box-shadow: none; 
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: red;
+        }
+
+        hr {
+            border: none; 
+            border-top: 2px solid #ccc; 
+            margin: 20px 0;
+        }
+        .p-special{
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="D:\E-commerce\Home\homebooks.html" class="logo"> 
+                <img src="logo.jpg" alt="Learning Tree Icon">
+            </a>
+          <h1>Learning Tree</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="D:\E-commerce\Home\homebooks.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+          </ul>
+        </nav>
+    </header>
+    <section class="container sproduct my-5 pt-5">
+        <div class="row mt-5">
+            <div class="col-lg-5 col-md-12 col-12 order-md-1">
+                <div class="main-image-container">
+                    <img class="main-image" id="main-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe7s7H_Yq0h3XMlTOx1cAQlXdzXmBWE3eZTh9_gub8sj5OvwcPTUcP_cg4bFR7QWYtkDg&usqp=CAU" alt="War And Peace Image">
+                </div>
+      
+                <div class="small-img-group">
+                  <div class="small-img-col">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJMZPpS-Ggh00R-PYJq9whdi1ELIeXc-CKy0M_ARVtzg_0nCMmsCkP1MzSBmOObLGOMOY&usqp=CAU" alt="War And Peace Image">
+                  </div>
+                  <div class="small-img-col">
+                      <img src="https://rukminim2.flixcart.com/image/850/1000/ksdjma80/backpack/c/y/r/core-up-minime-backpack-7830303-backpack-puma-3-original-imag5yhedcszehde.jpeg?q=20&crop=false" alt="War And Peace Image">
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 offset-lg-1 col-md-12 col-12 order-md-2">
+                <h6><a href="Stationeries.html">Home</a> / <a href="">Bags</a></h6>  
+                <h2>Puma Pink Demon</h2> 
+                <h4>from Puma (Maker)</h4>
+
+                <div class="product-Rating">
+                    Rating: 
+                    <span class="Stars">
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star Empty">☆</span>
+                    </span> 
+                    <span id="RatingNumber">4</span> 
+                </div>
+
+                <p>Total price: <span style="font-size:1.5em;">₹1397.00</span></p>
+                <p>Quantity: <span><input type="number" value="1" min="1"></span></p>
+                <button class="buy-btn">Add to Card</button>
+                <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var mainImage = document.getElementById('main-image');
+            var smallImages = document.querySelectorAll('.small-img-col img');
+            smallImages.forEach(function(img) {
+                img.addEventListener('mouseover', function() {
+                    mainImage.src = this.src;
+                });
+            });
+        });
+    </script>
+    
+    <br>
+    <hr>
+    <h2>Product description</h2>
+    <h3>About the Product</h3>
+    <p>Introducing the perfect blend of style and functionality with our Everyday Tote Bag. Crafted from durable, high-quality materials, this versatile bag is designed to meet all your daily needs. Its spacious interior features multiple pockets, ensuring you stay organized whether you're heading to work, running errands, or embarking on a weekend getaway. The sleek, minimalist design pairs effortlessly with any outfit, while the comfortable straps provide ease of carrying. Available in a variety of chic colors, the Everyday Tote Bag is your go-to accessory for combining practicality with timeless elegance.</p>
+   <br>
+   <hr>
+   <h2>Product details</h2> 
+   <div>
+    <span style="font-size: 1.2em; font-weight: bold;">Maker :</span>
+    <span style="font-size: 1em;">Oppenhimer Bags; Prajan Bags India Pvt Ltd, 113A, Ansari Road, Daryaganj, New Delhi-110002, +9111-23265358</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Bag rear material :</span>
+    <span style="font-size: 1em;">foam</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Item Weight :</span>
+    <span style="font-size: 1em;">250 g</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Dimensions :</span>
+    <span style="font-size: 1em;">35.24 x 14.57 x 40.32 cm</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Country of Origin :</span>
+    <span style="font-size: 1em;">India</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Net Quantity :</span>
+    <span style="font-size: 1em;">1 count</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Importer :</span>
+    <span style="font-size: 1em;">Prajan Books</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Packer :</span>
+    <span style="font-size: 1em;">Oppenhimer Books India Pvt Ltd</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Best Sellers Rank :</span>
+    <span style="font-size: 1em;">#3 in Bags</span>
+  </div>
+  <br>
+  <hr>
+  <div class="product-review">
+    <h2>Review this product</h2>
+    <p style="font-size: 1em;">Share your thoughts with other customers</p> 
+
+    <div class="product-rating">
+        Rating: <span class="stars">
+            <span class="star" onclick="setRating(1)">★</span>
+            <span class="star" onclick="setRating(2)">★</span>
+            <span class="star" onclick="setRating(3)">★</span>
+            <span class="star" onclick="setRating(4)">★</span>
+            <span class="star" onclick="setRating(5)">★</span>
+        </span> <span id="ratingNumber"></span>
+    </div>
+
+    <script>
+
+        function setRating(rating) {
+            let stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.classList.remove('empty');
+            });
+        
+            
+            for (let i = rating; i < 5; i++) {
+                stars[i].classList.add('empty');
+            }
+        
+            document.getElementById('ratingNumber').innerText = rating;
+        
+            console.log("Rating set to: " + rating);
+        }
+    </script>
+
+    <form id="comment-form">
+        <textarea id="comment" rows="4" cols="50" placeholder="Write your review here"></textarea>
+        <br>
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+<hr>
+<div class="comments">
+    <h3>Customer Reviews</h3>
+    <div class="comment">
+        <p>John Cena:</p>
+        <p>Being Chilling! bag.</p>
+    </div>
+    <div class="comment">
+        <p>Ben Dower:</p>
+        <p>Seen better quality but still not bad.</p>
+    </div>
+    <div id="comments-container"></div>
+</div>
+<hr>
+<footer>
+    <div style="position: absolute; top: 140vw; left: 0; width: 100vw; height: 25vw; background-color: rgb(108, 112, 112); margin-bottom: 20px;">
+        <p style="position: absolute; top: 0vw; left: 0vh; color: white;">About us</p>
+        <p style="position: absolute; top: 2vw; left: 0vh; color: black;"><a href="TermsAndConditions.html" target="_blank">Terms and Conditions</a></p>
+        <p style="position: absolute; top: 0vw; left: 25vh; color: white;">Help</p>
+        <p style="position: absolute; top: 2vw; left: 25vh; color: black;">Phone Number: 6374408650</p>
+        <p style="position: absolute; top: 4vw; left: 25vh; color: black;">Email ID: learningtree@gmail.com</p>
+        <p style="position: absolute; top: 0vw; left: 65vh; color: white;">Take me to</p>
+        <p style="position: absolute; top: 2vw; left: 65vh; color: black;"><a href="" target="_self">Home Page</a></p>
+        <p style="position: absolute; top: 4vw; left: 65vh; color: black;"><a href="" target="_self">Books</a></p>
+        <p style="position: absolute; top: 6vw; left: 65vh; color: black;"><a href="Homepage.html" target="_self">Stationeries</a></p>
+        <p style="position: absolute; top: 8vw; left: 65vh; color: black;"><a href="" target="_self">Purchase page</a></p>
+        <p style="position: absolute; top: 10vw; left: 0vh; color: white;">Learning Tree</p>
+        <p style="position: absolute; top: 12vw; left: 0vh; color: black;">Welcome to Learning Tree, your one-stop e-commerce solution for all school stationery needs. We specialize in providing a wide range of high-quality stationery items tailored for school
+        students. Our platform is designed with a user-friendly interface to ensure a seamless shopping experience. Please note that only authorized sellers are permitted to sell on our platform to
+        maintain the quality and authenticity of the products. Dive into our diverse collection and find everything your school-going child needs, all under one roof.</p>
+        <p style="position: absolute; top: 17vw; left: 6vh;"><a href="https://media.tenor.com/fm4u-L3RJjMAAAAe/cat-thousand-yard-stare-thousand-yard-stare.png" target="_blank">Instagram</a></p>
+        <p style="position: absolute; top: 17vw; left: 21vh;"><a href="https://us-tuna-sounds-images.voicemod.net/d0c4328b-ed35-4fb6-a235-55089303ead7-1702878158194.jpeg" target="_blank">Whatsapp</a></p>
+        <p style="position: absolute; top: 17vw; left: 36.5vh;"><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQek7u-yoh6vM9WVDGQlk7JxwcOTQ19y70Z4qa5ZFLNHw&s"target="_blank">Facebook</a></p>
+        <p style="position: absolute; top: 17vw; left: 51.5vh;"><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMBBdBEv0nqlZ5shcqMmK9eMKbC2-5ESMMhdZIMjejwA&s"target="_blank">X(Twitter)</a></p>
+        <p style="position: absolute; top: 1vw; left: 110vh; color: white; font-size: 3vw; font-family: 'Times New Roman', Times, serif;">Learning Tree</p>
+          <img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="Instagram logo" style="position: absolute; top: 17.2vw; left: 3vh;" width="20vw" height="20vh">
+          <img src="https://w7.pngwing.com/pngs/814/699/png-transparent-black-and-white-whatsapp-logo-whatsapp-social-media-computer-icons-plug-in-what-app-icon-logo-plugin-text-messaging.png" alt="Whatsapp logo" style="position: absolute; top: 17.2vw; left: 18vh;" width="20vw" height="20vh">
+          <img src="https://e7.pngegg.com/pngimages/634/843/png-clipart-facebook-logo-computer-icons-facebook-facebook-computer-logo.png" alt="Facebook logo" style="position: absolute; top: 17.2vw; left: 33vh;" width="20vw" height="20vh">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR74I4QHl-ZMe_jA26bE5yjhi_lfie7Fm1YLzDH3nu492sBYvYmb3730J7K7-5eg278LVw&usqp=CAU" alt="X logo" style="position: absolute; top: 17.2vw; left: 48vh;" width="20vw" height="20vh">
+          <!--<a href="#" class="back-to-top" style="position: absolute; top: 17.5vw; left: 90vh;">Back to Top</a>-->
+    <hr style="position: absolute; top: 17.5vw; left: 0vh;">
+    <p class="p-special" style="position: absolute; top: 20.5vw; left: 70vh;">&copy; 2024, Learning Tree, Inc. or its affiliates. All rights reserved.</p>
+          <img src="logo1.png" alt="logo" style="position: absolute; top: 02vh; left: 47vw; width: 8vw; height: 15vh;">
+          </div>
+    </body>
+</footer>
+
+<script>
+    document.getElementById("comment-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        
+        var comment = document.getElementById("comment").value;
+        var rating = document.getElementById("ratingNumber").innerText;
+
+        
+        if (comment.trim() === "") {
+            alert("Please write your review before submitting.");
+            return;
+        }
+
+        
+        var newComment = document.createElement("div");
+        newComment.classList.add("comment");
+        newComment.innerHTML = '<p id="user-name">User:</p><p>' + comment + '</p>';
+
+        
+        if (rating > 0) {
+            newComment.innerHTML += '<p>Rating: ' + generateStars(rating) + '</p>';
+        }
+
+        
+        var commentsContainer = document.getElementById("comments-container");
+        commentsContainer.appendChild(newComment);
+
+        
+        document.getElementById("comment").value = "";
+        
+        
+        document.getElementById("ratingNumber").innerText = "0";
+    });
+
+    
+    function generateStars(rating) {
+        var stars = "";
+        for (var i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars += '<span style="color: gold;">★</span>'; 
+            } else {
+                stars += '<span style="color: gold;">☆</span>'; 
+            }
+        }
+        
+        stars += ' (' + rating + ')';
+        return stars;
+    }
+
+    function setRating(rating) {
+        let stars = document.querySelectorAll('.star');
+        stars.forEach(star => {
+            star.classList.remove('empty');
+        });
+
+        for (let i = rating; i < 5; i++) {
+            stars[i].classList.add('empty');
+        }
+
+        document.getElementById('ratingNumber').innerText = rating;
+    }
+</script>
+
+
+</body>
+</html>
