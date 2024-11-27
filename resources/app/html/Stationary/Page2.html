@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bags</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/nav_bar.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @media only screen and (max-width: 300px) {
+            .text {
+                font-size: 11px
+            }
+        }
+        .styled-button {
+            background-color: crimson; 
+            border: none;             
+            color: white;          
+            padding: 15px 32px;       
+            text-align: center;      
+            text-decoration: none;    
+            display: inline-block;   
+            font-size: 16px;         
+            margin: 4px 2px;          
+            cursor: pointer;          
+            border-radius: 12px;
+            align-items: center;      
+        }
+
+        .styled-button:hover {
+            background-color: rgb(171, 0, 34); 
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/f84acd84a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar"></nav>
+    <script src="../../js/nav_bar.js"></script>
+
+    <div class="content">
+        <!-- Your content goes here -->
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="https://skybags.co.in/cdn/shop/files/1_f30650ea-15db-4fd3-8269-b9ce5c3c7ad4.png?v=1685703211&width=1000" width="1000vw" height="450vh">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://www.exchange4media.com/news-photo/1522423646_8VovkE_Swagpack-Campaign-Image.jpg" width="1000vw" height="450vh">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://skybags.co.in/cdn/shop/files/1_f534145f-2bc0-4b94-836b-06042d7f2b9d.png?v=1685703119&width=1000" width="1000vw" height="450vh">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="https://wildcraft.com/media/wysiwyg/Category-TE-900x560.jpg?auto=webp&format=pjpg&quality=85" width="1000vw" height="450vh">
+            </div>
+        </div>
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <script>
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 5000);
+            }
+        </script>
+        <br/>
+        <hr size="5px" color="red"/>
+        <a href="../ProductDescription/Bag1.html" target="_self">
+            <img class="btn" src="https://wildcraft.com/media/catalog/product/1/_/1_415.jpg" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 52vw; left: 10vh;" >
+            <p style="position: absolute; top: 77vw; left: 25vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Wildcraft Bravo teal<br/>
+                rs:2000</p>
+        </a>
+        <a href="../ProductDescription/Bag2.html" target="_self">
+      <img class="btn" src="https://cdn.staticans.com/image/tr:e-sharpen-01,h-1500,w-1500,cm-pad_resize/data/AmericanTourister/26-Feb-2023/HL4009008_1.jpg" atl="Pen_home" width="400vw" height="400vh" style="position: absolute; top: 52vw; left: 75vh;" >
+      <p style="position: absolute; top: 77vw; left: 88vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">American Tourister Black<br/>rs:1700</p>
+    </a>
+        <a href="../ProductDescription/Bag3.html" target="_self">
+      <img class="btn" src="https://images-static.nykaa.com/media/catalog/product/c/c/ccd8a148903496104684_1_.jpg" atl="Pencil_home" width="380vw" height="380vh" style="position: absolute; top: 54vw; left: 130vh;" >
+      <p style="position: absolute; top: 77vw; left: 145vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Tommy Hilfiger classy<br/>rs:1759</p>
+    </a>
+
+    <a href="../ProductDescription/Bag4.html" target="_self">
+        <img class="btn" src="https://rukminim2.flixcart.com/image/850/1000/xif0q/backpack/n/x/4/14-polyester30l-drip-02-school-backpack-red-8-bpdrip2red-original-imagjmu9pfgd7thy.jpeg?q=90&crop=false" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 85vw; left: 10vh;" >
+        <p style="position: absolute; top: 110vw; left: 25vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Skybags Drip 02<br/>
+            rs:1350</p>
+    </a>
+    <a href="../ProductDescription/Bag5.html" target="_self">
+  <img class="btn" src="https://skybags.co.in/cdn/shop/files/1_c724819a-d097-4756-8749-044d379959e2.jpg?v=1690192925" atl="Pen_home" width="400vw" height="400vh" style="position: absolute; top: 85vw; left: 75vh;" >
+  <p style="position: absolute; top: 110vw; left: 88vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Sky Bags sum-tung-wong<br/>rs:1580</p>
+</a>
+    <a href="../ProductDescription/Bag6.html" target="_self">
+  <img class="btn" src="https://assets.ajio.com/medias/sys_master/root/20210901/PGkp/612e7997aeb269a268851f73/-473Wx593H-460934529-black-MODEL.jpg" atl="Pencil_home" width="380vw" height="380vh" style="position: absolute; top: 85vw; left: 130vh;" >
+  <p style="position: absolute; top: 110vw; left: 145vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Puma Pesant-class<br/>rs:659</p>
+</a>
+
+
+<a href="../ProductDescription/Bag7.html" target="_self">
+  <img class="btn" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe7s7H_Yq0h3XMlTOx1cAQlXdzXmBWE3eZTh9_gub8sj5OvwcPTUcP_cg4bFR7QWYtkDg&usqp=CAU" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 120vw; left: 10vh;" >
+  <p style="position: absolute; top: 143vw; left: 25vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Puma Pink Demon<br/>
+      rs:1397</p>
+</a>
+<a href="../ProductDescription/Bag8.html" target="_self">
+<img class="btn" src="https://rukminim2.flixcart.com/image/850/1000/xif0q/bag/x/x/i/25-0-unicorn-fur-sling-bag-for-girls-6-0-toyprofessor-13-20-0-original-imaggkf7zsfpksru.jpeg?q=90&crop=false" atl="Pen_home" width="400vw" height="400vh" style="position: absolute; top: 120vw; left: 75vh;" >
+<p style="position: absolute; top: 143vw; left: 88vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">School Lite Unicorn<br/>rs:895</p>
+</a>
+<a href="../ProductDescription/Bag9.html" target="_self">
+<img class="btn" src="https://safaribags.com/cdn/shop/files/1_c945588f-037b-4584-8a71-34cc1bdc544d_1024x.jpg?v=1707668856" atl="Pencil_home" width="380vw" height="380vh" style="position: absolute; top: 120vw; left: 130vh;" >
+<p style="position: absolute; top: 143vw; left: 145vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Safari Chap Rhi way<br/>rs:1677</p>
+</a>
+
+
+<a href="../ProductDescription/Bag10.html" target="_self">
+  <img class="btn" src="https://d2fy0k1bcbbnwr.cloudfront.net/yP-mplace/Bags/Back_Packs/YPB085MHDJ93_o.jpg" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 150vw; left: 75vh;" >
+  <p style="position: absolute; top: 173vw; left: 90vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Half Moon Knight<br/>
+      rs:2134</p>
+    </div>
+</body>
+<body>
+    <a href="../Stationary/Stationeries.html" style="position: absolute;top: 340vh;left: 45vw;"><button class="styled-button">Back To Stationeries</button></a>
+</body>
+</html>

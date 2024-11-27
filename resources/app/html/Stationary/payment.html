@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" href="../../css/payment.css">
+</head>
+<body>
+  <!-- navigation bar -->
+    <nav class="navbar"></nav>
+    <script src="../../js/nav_bar.js"></script>
+<h2>Select an option for payment</h2>
+<img style="width: 27% ;" src="../../images/pay.jpg">
+<hr size="4" color="red">
+<form id="paymentForm" onsubmit="return validateForm()">
+
+<label><input type="radio" name="pay">
+        <p class="collapsible" style="color: white;">Credit/Debit Card</p>
+        <div class="content">
+            <p><label><input type="radio" name="card">Credit</label><label><input type="radio" name="card">Debit</label>
+            <p>Enter Your Card Details:</p>
+            <p>Card Number<input type="text" placeholder="1111-2222-3333-4444"></p>
+            <p>Name on Card<input type="text"><div class="tooltip">CVV:<input type="text" maxlength="3" size="3"><span class="tooltiptext">CVV is the 3 digit code at the back of your card</span>
+              </div></p>
+            <p>Expiry Date<select>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+            </select>
+            <select>
+                <option>2024</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>2030</option><option>2031</option><option>2032</option><option>2033</option><option>2034</option>
+            </select>
+        </p>
+        </div>
+      </label>
+
+
+<label><input type="radio" name="pay">
+  <p class="collapsible" style="color: white;">BHIM-UPI</p>
+<div class="content">
+    <p>Enter UPI ID:<input type="text" placeholder="example@vpa"></p>
+</div>
+</label>
+
+<label><input type="radio" name="pay">
+    <p class="collapsible" style="color: white;">Net-banking</p>
+    <div class="content">
+        <p>Select your bank:
+            <select>
+                <option value="" disabled selected>Select your bank</option>
+                <option>State Bank Of India</option>
+                <option>ICICI Bank</option>
+                <option>HDFC Bank</option>
+                <option>Kotak Mahindra Bank</option>
+                <option>Airtel Payments Bank</option>
+                <option>Bank of Baroda</option>
+                <option>Standard Chartered Bank</option>
+                <option>Axis Bank</option>
+                <option>Canara Bank</option>
+                <option>IndusInd Bank</option>
+                <option>Yes Bank</option>
+                <option>Union Bank Of India</option>
+                <option>City Union Bank</option>
+                <option>Deutsche Bank</option>
+                <option>Karur Vysya Bank</option>
+                <option>Dhanlakshmi Bank</option>
+                <option>IDFC First Bank</option>
+            </select>
+        </p>
+    </div>
+    </label>
+
+    <label><input type="radio" name="pay">
+        <p class="collapsible" style="color: white;">Pay on Delivery</p>
+        <div class="content">
+            <div class="tooltip">Cash/QR Scanner at home<input type="checkbox"><span class="tooltiptext">Pay with cash or scan an QR to pay during delivery.</span>
+            </div></p>
+            
+        </div>
+        </label>
+        
+        </form>
+        <hr>
+        <div class="col-25">
+          <div class="container">
+              <h4 style="font-size: 26pt">Cart
+                  <span class="price" style="color:black">
+                      <i class="fa fa-shopping-cart"></i>
+                  </span>
+              </h4>
+              <p><a href="" target="_self">
+                  <img class="btn" src="https://shop.ourstore.in/wp-content/uploads/2023/01/ourstore-2023-01-25T010925.890.png" atl="Notebooks_home" width="100px" height="100px" style="position: static;" >
+                  <p style="position: static; color: rgb(188, 21, 21);font-size: 12pt;font-family: 'Times New Roman', Times, serif;">Camlin Rueled 165 pages<br/>
+                      <i class="fas fa-indian-rupee-sign"></i>55 X2</p></a>
+              <p><a href="" target="_self">
+                  <img class="btn" src="https://images-eu.ssl-images-amazon.com/images/I/61XU5XKCHTL._AC_UL600_SR600,600_.jpg" atl="Notebooks_home" width="100px" height="100px" style="position:static" >
+                  <p style="position: static; color: rgb(188, 21, 21);font-size: 12ptvw;font-family: 'Times New Roman', Times, serif;">Camlin Kokuyo<br/>
+                      <i class="fas fa-indian-rupee-sign"></i>60 X1</p>
+                      </a>
+              <p><a href="" target="_self">
+                  <img class="btn" src="https://clickere.in/cdn/shop/products/Doms-Neon-Eraser_580x.jpg?v=1698477768" atl="Notebooks_home" width="100px" height="100px" style="position: static" >
+                  <p style="position: static; color: rgb(188, 21, 21);font-size: 12pt;font-family: 'Times New Roman', Times, serif;">Doms Neon Eraser<br/>
+                      <i class="fas fa-indian-rupee-sign"></i>5 X2</p>
+                  </a>
+              <p><a href="" target="_self">
+                  <img class="btn" src="https://i.pinimg.com/originals/20/14/65/201465e5550329f6c0d0fe4fb6be2781.gif" atl="Notebooks_home" width="100px" height="100px" style="position: static" >
+                  <p style="position: static; color: rgb(188, 21, 21);font-size: 12pt;font-family: 'Times New Roman', Times, serif;">India Outline Map<br/>
+                      <i class="fas fa-indian-rupee-sign"></i>3 X10</p>
+                  </a>
+              <p><a href="" target="_self">
+                  <img class="btn" src="https://skybags.co.in/cdn/shop/files/1_c724819a-d097-4756-8749-044d379959e2.jpg?v=1690192925" atl="Notebooks_home" width="100px" height="100px" style="position: static" >
+                  <p style="position: static; color: rgb(188, 21, 21);font-size: 12pt;font-family: 'Times New Roman', Times, serif;">Sky Bags sum-tung-wong<br/>
+                      <i class="fas fa-indian-rupee-sign"></i>1580 X1</p>
+                  </a>
+              </p>
+              <hr>
+              <p><span class="price" style="color:black;font-size: 26pt;"><b>Total: <i class="fas fa-indian-rupee-sign"></i>1790</b></span></p>
+          </div>
+        </div>      
+          <br>
+    <p style="font-size: 18pt;font-style: oblique;">Enter captcha to pay</p>
+            <div id="captchaBackground">
+                <canvas id="captcha">captcha text</canvas>
+                <input id="textBox" type="text" name="text">
+    
+                <div id="buttons">
+                    <input id="submitButton" value="Pay" type="submit">
+                    <button id="refreshButton" type="submit">Refresh</button>
+                </div>
+    
+                <span id="output"></span>
+            </div>
+        </div>
+         <br>
+         <br>
+
+<script src="../../js/payment.js"></script>
+
+</script>
+
+    <!-- footer -->
+   <div class="footer"></div>
+   <script src="../../js/bottom.js"></script>
+   <div class="footer-bottom">
+      <p>&copy; 2023 Learning Tree. All rights reserved.</p>
+    </div>
+
+</body>
+</html>

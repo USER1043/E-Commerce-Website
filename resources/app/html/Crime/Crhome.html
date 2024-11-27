@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore - Crime</title>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        @import "../../css/nav_bar.css";
+        @import "../../css/bottom.css";
+        a:hover {
+            color: #fff; 
+            text-decoration: none; 
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .hero .search-box {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 250px; 
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px; 
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: red;
+            font-size: 16px;
+        }
+
+        .search-container input::placeholder {
+            color: red;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: red;
+            cursor: pointer;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f0f0f0;
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .hero .btn:hover {
+            background-color: darkred;
+        }
+
+        .featured-books {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .featured-books h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .featured-books-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .book {
+            flex: 0 0 200px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .book:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .book img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .book h3,
+        .book p {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .book a {
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+            background-color: red;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0 0 5px 5px;
+            transition: background-color 0.3s;
+        }
+
+        .book a:hover {
+            background-color: #ff0000;
+        }
+
+        .back-to-top {
+            color: red;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            color: #ff0000;
+            opacity: 0.7;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            height: 70px;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: auto;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+            transform: translateY(-50%);
+        }
+
+        .prev {
+            left: 10px;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 10px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .options-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .options-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .option {
+            padding: 10px;
+            background-color: rgb(68, 163, 68); 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+            width: 160px;
+            margin: 0 10px;
+        }
+
+        .option:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .option a {
+            text-decoration: none;
+            color: white; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .option i {
+            font-size: 24px;
+    
+        }
+
+        .option span {
+            margin-top: 5px;
+            color: white; 
+        }
+
+        .Stars .Star {
+            color: gold;
+            cursor: pointer;
+        }
+        #noResultsMessage {
+            display: none;
+            text-align: center;
+            font-size: 1.15rem; 
+            color: red;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar"></nav>
+    <script src="../../js/nav_bar.js"></script>
+    <!-- Main content -->
+    <section class="options-section">
+        <div class="options-container">
+            <div class="option">
+                <a href="..\Adventure\adhome.html">
+                    <i class="fas fa-book"></i>
+                    <span>Adventure/Fiction Books</span>
+                </a>
+            </div>
+            <div class="option">
+                <a href="..\Fantasy books\Fanhome.html">
+                    <i class="fas fa-book"></i>
+                    <span>Fantasy books</span>
+                </a>
+            </div>
+            <div class="option">
+                <a href="..\Biography Books\Biohome.html">
+                    <i class="fas fa-book"></i>
+                    <span>Biography Books</span>
+                </a>
+            </div>
+            <div class="option">
+                <a href="..\Crime\Crhome.html">
+                    <i class="fas fa-book"></i>
+                    <span>Crime/Thriller Books</span>
+                </a>
+            </div>
+            <div class="option">
+                <a href="..\School Books\Schhome.html">
+                    <i class="fas fa-book"></i>
+                    <span>School Books</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <h2>Find Your Next Great Read</h2>
+        <p>Explore our vast collection of books and discover your next adventure.</p>
+        
+        <div class="search-box">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search">
+                <span class="search-icon"><i class="fas fa-search"></i></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-books">
+        <h2>Adventure/Fiction Books</h2>
+        <div class="featured-books-wrapper">
+            <!-- First Book -->
+            <div class="book">
+                <a href="..\Crime\Cr1.html">
+                    <img src="..\..\images\book_img\Crimg\The Godfather.webp" alt="The Godfather">
+                    <h3>The Godfather: 50th Anniversary Edition</h3>
+                    <p>Price:  ₹810.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.7</span> 
+                    </div>
+                </a>
+            </div>
+            <!-- Second Book -->
+            <div class="book">
+                <a href="..\Crime\Cr2.html">
+                    <img src="..\..\images\book_img\Crimg\In Cold Blood.webp" alt="In Cold Blood">
+                    <h3>In Cold Blood</h3>
+                    <p>Price:  ₹331.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.4</span> 
+                    </div>
+                </a>
+            </div>
+            <!-- Third Book -->
+            <div class="book">
+                <a href="..\Crime\Cr3.html">
+                    <img src="..\..\images\book_img\Crimg\The Girl with the Dragon Tattoo.webp" alt="The Girl with the Dragon Tattoo">
+                    <h3>The Girl with the Dragon Tattoo</h3>
+                    <p>Price: ₹276.71</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.4</span> 
+                    </div>
+                </a>
+            </div>
+            <!-- Fourth Book -->
+            <div class="book">
+                <a href="..\Crime\Cr4.html">
+                    <img src="..\..\images\book_img\Crimg\The Da Vinci Code.webp" alt="The Da Vinci Code">
+                    <h3>The Da Vinci Code: The Illustrated Edition</h3>
+                    <p>Price: ₹1,450.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">☆</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.6</span> 
+                    </div>
+                </a>
+            </div>
+
+            <!-- Fifth Book -->
+            <div class="book">
+                <a href="..\Crime\Cr5.html">
+                    <img src="..\..\images\book_img\Crimg\The Silence of the Lambs.webp" alt="Silence Of The Lambs">
+                    <h3>Silence Of The Lambs: (Hannibal Lecter)</h3>
+                    <p>Price: ₹393.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.6</span> 
+                    </div>
+                </a>
+            </div>
+
+            <!-- Sixth Book -->
+            <div class="book">
+                <a href="..\Crime\Cr6.html">
+                    <img src="..\..\images\book_img\Crimg\The Girl on the Train.webp" alt="The Girl on the Train">
+                    <h3>The Girl on the Train [Paperback] Hawkins, Paula</h3>
+                    <p>Price: ₹348.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.1</span> 
+                    </div>
+                </a>
+            </div>
+
+            <!-- Seventh Book -->
+            <div class="book">
+                <a href="..\Crime\Cr7.html">
+                    <img src="..\..\images\book_img\Crimg\The Bourne Identity.webp" alt="The Bourne Identity">
+                    <h3>THE BOURNE IDENTITY: The first Jason Bourne thriller</h3>
+                    <p>Price: ₹560.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.3</span> 
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>    
+
+    <div id="noResultsMessage" style="display: none;">No Result Found</div>
+
+    <!-- footer -->
+   <div class="footer"></div>
+   <script src="../../js/bottom.js"></script>
+   <div class="footer-bottom">
+      <p>&copy; 2023 Learning Tree. All rights reserved.</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const books = document.querySelectorAll('.book');
+            const noResultsMessage = document.getElementById('noResultsMessage');
+
+            searchInput.addEventListener('keyup', function() {
+                const filter = searchInput.value.toLowerCase();
+                let found = false;
+                books.forEach(function(book) {
+                    const title = book.querySelector('h3').textContent.toLowerCase();
+                    if (title.includes(filter)) {
+                        book.style.display = '';
+                        found = true;
+                    } else {
+                        book.style.display = 'none';
+                    }
+                });
+    
+                // Show or hide the "No Result Found" message
+                if (!found) {
+                    noResultsMessage.style.display = 'block';
+                } else {
+                    noResultsMessage.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore - Fantasy</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        @import "../../css/nav_bar.css";
+        @import "../../css/bottom.css";
+        a:hover {
+            color: #fff; 
+            text-decoration: none; 
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .hero .search-box {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 250px; 
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px; 
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: red;
+            font-size: 16px;
+        }
+
+        .search-container input::placeholder {
+            color: red;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: red;
+            cursor: pointer;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f0f0f0;
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .hero .btn:hover {
+            background-color: darkred;
+        }
+
+        .featured-books {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .featured-books h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .featured-books-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .book {
+            flex: 0 0 200px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .book:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .book img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .book h3,
+        .book p {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .book a {
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+            background-color: red;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0 0 5px 5px;
+            transition: background-color 0.3s;
+        }
+
+        .book a:hover {
+            background-color: #ff0000;
+        }
+
+        .back-to-top {
+            color: red;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            color: #ff0000;
+            opacity: 0.7;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            height: 70px;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: auto;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+            transform: translateY(-50%);
+        }
+
+        .prev {
+            left: 10px;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 10px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .options-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .options-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .option {
+            padding: 10px;
+            background-color: rgb(68, 163, 68); 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+            width: 160px;
+            margin: 0 10px;
+        }
+
+        .option:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .option a {
+            text-decoration: none;
+            color: white; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .option i {
+            font-size: 24px;
+    
+        }
+
+        .option span {
+            margin-top: 5px;
+            color: white; 
+        }
+
+        .Stars .Star {
+            color: gold;
+            cursor: pointer;
+        }
+        #noResultsMessage {
+            display: none;
+            text-align: center;
+            font-size: 1.5rem;
+            color: red;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar"></nav>
+    <script src="../../js/nav_bar.js"></script>
+    <!-- Main content -->
+    <section class="options-section">
+        <div class="options-container">
+            <div class="option">
+                <a href="..\Adventure\adhome.html">
+                    <i class="fas fa-book"></i>
+                    <span>Adventure/Fiction Books</span>
+                </a>
+            </div>
+            <div class="option">
+                <a href="..\Fantasy books\Fanhome.html">
+                    <i class="fas fa-book"></i>
+                    <span>Fantasy books</span>
+                </a>
+            </div>
+            <div class="option">
+                <a href="..\Biography Books\Biohome.html">
+                    <i class="fas fa-book"></i>
+                    <span>Biography Books</span>
+                </a>
+            </div>
+            <div class="option">
+                <a href="..\Crime\Crhome.html">
+                    <i class="fas fa-book"></i>
+                    <span>Crime/Thriller Books</span>
+                </a>
+            </div>
+            <div class="option">
+                <a href="..\School Books\Schhome.html">
+                    <i class="fas fa-book"></i>
+                    <span>School Books</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <h2>Find Your Next Great Read</h2>
+        <p>Explore our vast collection of books and discover your next adventure.</p>
+        
+        <div class="search-box">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search">
+                <span class="search-icon"><i class="fas fa-search"></i></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-books">
+        <h2>Adventure/Fiction Books</h2>
+        <div class="featured-books-wrapper">
+            <!-- First Book -->
+            <div class="book">
+                <a href="..\Fantasy books\Fan1.html">
+                    <img src="..\..\images\book_img\Fanimg\The Lord of the Rings.webp" alt="The Fellowship of the Ring">
+                    <h3>The Fellowship of the Ring</h3>
+                    <p>Price:  ₹399.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">☆</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.4</span> 
+                    </div>
+                </a>
+            </div>
+            <!-- Second Book -->
+            <div class="book">
+                <a href="..\Fantasy books\Fan2.html">
+                    <img src="..\..\images\book_img\Fanimg\A Game of Thrones.webp" alt="A Game of Thrones">
+                    <h3>A Game of Thrones (Reissue): Book 1 (A Song of Ice and Fire)</h3>
+                    <p>Price: ₹464.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.6</span> 
+                    </div>
+                </a>
+            </div>
+            <!-- Third Book -->
+            <div class="book">
+                <a href="..\Fantasy books\Fan3.html">
+                    <img src="..\..\images\book_img\Fanimg\Harry Potter.webp" alt="Harry Potter ">
+                    <h3>Harry Potter and the Deathly Hallows: 7 (Harry Potter, 7)</h3>
+                    <p>Price: ₹2,799.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.8</span> 
+                    </div>
+                </a>
+            </div>
+            <!-- Fourth Book -->
+            <div class="book">
+                <a href="..\Fantasy books\Fan4.html">
+                    <img src="..\..\images\book_img\Fanimg\The Name of the Wind.webp" alt="THE NAME OF THE WIND: THE KINGKILLER CHRONICLE: BOOK 1">
+                    <h3>THE NAME OF THE WIND: THE KINGKILLER CHRONICLE: BOOK 1</h3>
+                    <p>Price: ₹395.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">☆</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.5</span> 
+                    </div>
+                </a>
+            </div>
+
+            <!-- Fifth Book -->
+            <div class="book">
+                <a href="..\Fantasy books\Fan5.html">
+                    <img src="..\..\images\book_img\Fanimg\American Gods.webp" alt="American Gods: A Novel">
+                    <h3>American Gods: A Novel</h3>
+                    <p>Price: ₹1,395.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.8</span> 
+                    </div>
+                </a>
+            </div>
+
+            <!-- Sixth Book -->
+            <div class="book">
+                <a href="..\Fantasy books\Fan6.html">
+                    <img src="..\..\images\book_img\Fanimg\The Wheel of Time.webp" alt="WHEEL OF TIME 1: THE EYE OF THE WORLD (REISSUE)">
+                    <h3>WHEEL OF TIME 1: THE EYE OF THE WORLD (REISSUE)</h3>
+                    <p>Price: ₹499.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.5</span> 
+                    </div>
+                </a>
+            </div>
+
+            <!-- Seventh Book -->
+            <div class="book">
+                <a href="..\Fantasy books\Fan7.html">
+                    <img src="..\..\images\book_img\adimg\The Hobbit.webp" alt="The Hobbit">
+                    <h3>The Hobbit</h3>
+                    <p>Price:  ₹351.00</p>
+                    <div class="product-Rating"> 
+                        <span class="Stars">
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star">★</span>
+                            <span class="Star Empty">☆</span>
+                        </span> 
+                        <span id="RatingNumber">4.5</span> 
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>    
+
+    <div id="noResultsMessage" style="display: none;">No Result Found</div>
+
+    <!-- footer -->
+   <div class="footer"></div>
+   <script src="../../js/bottom.js"></script>
+   <div class="footer-bottom">
+      <p>&copy; 2023 Learning Tree. All rights reserved.</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const books = document.querySelectorAll('.book');
+            const noResultsMessage = document.getElementById('noResultsMessage');
+
+            searchInput.addEventListener('keyup', function() {
+                const filter = searchInput.value.toLowerCase();
+                let found = false;
+                books.forEach(function(book) {
+                    const title = book.querySelector('h3').textContent.toLowerCase();
+                    if (title.includes(filter)) {
+                        book.style.display = '';
+                        found = true;
+                    } else {
+                        book.style.display = 'none';
+                    }
+                });
+    
+                // Show or hide the "No Result Found" message
+                if (!found) {
+                    noResultsMessage.style.display = 'block';
+                } else {
+                    noResultsMessage.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

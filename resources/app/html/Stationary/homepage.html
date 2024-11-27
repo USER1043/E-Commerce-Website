@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../css/style.css">
+<script src="https://kit.fontawesome.com/f84acd84a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- Title -->
+<div class="header" >
+    <h1>Learning Tree</h1>
+    <p><i>The one place for all your study needs</i></p>
+</div>
+
+<!-- nav bar -->
+<nav class="navbar"></nav>
+<script src="../../js/nav_bar.js"></script>
+<div class="content">
+  <!-- Home Page Content -->
+<div class="slideshow-container">
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="../../images/slide1.jpg" style="width:100%">
+  <div class="text">2</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="../../images/slide2.jpg" style="width:100%">
+  <div class="text">2</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="../../images/slide3.jpg" style="width:100%">
+  <div class="text">3</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">></a>
+<a class="next" onclick="plusSlides(1)">></a>
+
+</div>
+<br>
+
+<iframe class="popular" src="../../html/Stationary/popular.html" title="popular items"></iframe>
+<a href="../Home/homebooks.html"><div class="zoom" style="position: absolute; top: 950px;left: 510px;background-image:url(../../images/books.jpg)"><p style="color: white;font-size: 30pt;position: relative;">Books</p></div></a><a href="../../html/Stationary/Stationeries.html"><div class="zoom" style="position: absolute; top: 950px;left: 1000px;background-image:url(../../images/stationaries.png)"><p style="color: rgb(214, 7, 7);font-size: 30pt;position: relative;">Stationeries</p></div></a>
+<iframe class="deals"  src="../../html/Stationary/deals.html" title="deals aggregator"></iframe>
+<br>
+<br>
+</div>
+
+<script>
+let slideIndex = 0;   
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000);
+}
+
+</script>
+
+<!-- footer -->
+<div class="footer"></div>
+<script src="../../js/bottom.js"></script>
+<div class="footer-bottom">
+  <p>&copy; 2023 Learning Tree. All rights reserved.</p>
+</div>
+</body>
+</html> 

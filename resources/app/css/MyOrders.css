@@ -1,0 +1,180 @@
+@import '../css/nav_bar.css';
+@import '../css/bottom.css';
+.logo a{
+   font-size: 2.5em;
+}
+*{
+   font-family: sans-serif;
+   margin: 0; padding: 0;
+   box-sizing: border-box;
+   outline: none; border: none;
+   text-decoration: none;
+}
+
+*::selection{
+   background-color: crimson;
+   color: white;
+}
+
+*::-webkit-scrollbar{
+   height: .5rem;
+   width: 1rem;
+}
+
+*::-webkit-scrollbar-track{
+   background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+   background-color: black;
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+body{
+   background: #eee;
+   padding-bottom: 8rem; 
+}
+
+section{
+   padding:2.5rem 2rem;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.heading{
+   text-align: center;
+   padding-bottom: 2.5rem;
+   font-size: 3rem;
+   color: crimson;
+   text-transform: capitalize;
+}
+/* Page specific styling */
+.orders .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 35rem);
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+ }
+ 
+ .orders .box-container .box{
+    background-color: white;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0,0,0,.3);
+    padding: 2rem;
+    overflow-x: hidden;
+ }
+ 
+ .orders .box-container .box .date{
+    padding:1rem 1.5rem;
+    color: #666;;
+    background-color: #eee;
+    font-size: 1.6rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    border-radius: .5rem;
+ }
+ 
+ .orders .box-container .box .date i{
+    margin-right: 1rem;
+    color: crimson;
+ }
+ 
+.orders .box-container .box .image-container {
+   position: relative;
+   display: flex;
+   align-items: center;
+   height: 20rem;
+   width: 100%;
+}
+
+.orders .box-container .box .image {
+   height: 100%;
+   width: 100%;
+   object-fit: contain;
+   margin: 1rem 0;
+}
+
+.orders .box-container .box .quantity {
+   position: absolute;
+   bottom: 10px; 
+   right: 10px; 
+   background-color: #efefef;
+   color: crimson;
+   padding: 5px;
+   border-radius: 50%;
+   font-size:2rem;
+   width:30px;
+   height:30px;
+   text-align: center;
+}
+ 
+ .orders .box-container .box .name{
+    font-size: 2rem;
+    color: maroon;
+    text-overflow: ellipsis;
+    margin: 1rem 0;
+    overflow-x: hidden;
+ }
+ 
+ .orders .box-container .box .price{
+    color:midnightblue;
+    font-size: 1.8rem;
+    padding: .5rem 0;
+ }
+ 
+ .orders .box-container .box .status{
+    padding-top: .5rem;
+    color: rgb(1, 88, 40);
+    font-size: 1.7rem ;
+ }
+ 
+ .orders .box-container .box:hover{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+ }
+ 
+ .orders .box-container .box:hover .date{
+    background-color: crimson;
+    color: white;
+ }
+ .orders .box-container .box:hover .date i{
+    color: white;
+ }
+
+ @media (max-width:991px){
+
+   html{
+      font-size: 55%;
+   }
+
+}
+ @media (max-width:450px){
+
+   html{
+      font-size: 50%;
+   }
+
+   .heading{
+      font-size: 2.5rem;
+   }
+
+   .products .box-container{
+      grid-template-columns: 1fr;
+   }
+
+   .orders .box-container{
+      grid-template-columns: 1fr;
+   }
+
+}
+.footer-section p,
+ .footer-section a {
+   font-size: 1.5rem;
+   color: black;
+   margin: 5px 0;
+   text-decoration: none;
+ }

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        @import "../../css/nav_bar.css";
+        @import "../../css/bottom.css";
+        a:hover {
+            color: #fff; 
+            text-decoration: none; 
+        }
+        body {
+            padding-top: 80px; 
+            padding-bottom: 80px; 
+            margin: 0;
+            box-sizing: border-box;
+            overflow-y: scroll; 
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .main-content {
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            height: calc(150% - 160px); 
+        }
+
+        .main-image-container {
+            position: relative;
+            overflow: hidden;
+            width: 300px; 
+            height: 400px; 
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .small-img-group{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+              
+        }
+
+        .small-img-col{
+            float: left;
+            flex-basis: 24%;
+            cursor: pointer;
+            margin-right: 5px;
+            width: 80px; 
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .small-img-col img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .sproduct input{
+           width: 30px; 
+           height: 20px;
+           padding-left: 10px;
+           font-size: 16px;
+           margin-right: 10px;
+        }
+
+        .sproduct input:focus{
+            outline: none;
+        }
+
+        .sproduct input[type="number"] {
+            width: 60px;
+            height: 30px; 
+            padding-left: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .buy-btn {
+           background: red;
+           opacity: 1;
+           color: white; 
+           border-radius: 20px; 
+           padding: 8px 20px;
+           border: none;
+           cursor: pointer;
+           transition: background-color 0.3s; 
+        }
+
+        .buy-btn:hover {
+            background-color: darkred; 
+        }
+
+
+        .product-detail{
+            line-height: 2;
+        }
+
+        body {
+            padding-left: 20px; 
+            padding-right: 20px; 
+        }
+
+        .stars {
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .star {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .star.empty {
+            color: #ccc;
+        }
+
+        .Stars .Star {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .product-rating {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .product-review {
+            margin-bottom: 20px;
+        }
+
+        #comment-form {
+            width: 500px; 
+            max-width: 100%;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px; 
+            border: none; 
+            overflow: hidden;
+            
+        }
+
+        #comment {
+            width: calc(100% - 20px); 
+            height: 100px; 
+            resize: vertical;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: none; 
+            border-radius: 5px;
+            background-color: #f0ecec; 
+            box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+        }
+
+        #comment-form button {
+            padding: 8px 20px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+
+        #comment-form button:hover {
+            background-color: darkred;
+        }
+
+        
+        .back-to-top {
+            color: #fff; 
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: rgb(55, 33, 33);
+            transition: background-color 0.3s; 
+            outline: none; 
+            box-shadow: none; 
+        }
+
+        .back-to-top:hover {
+            color: #fff; 
+            background-color: darkred;
+        }
+
+        .back-to-top:focus, 
+        .back-to-top:active {
+            outline: none; 
+            box-shadow: none; 
+        }
+
+       .footer-section p,
+        .footer-section a {
+            font-size: 0.8rem;
+            color: black;
+            margin: 5px 0;
+            text-decoration: none;
+        }
+
+        hr {
+            border: none; 
+            border-top: 2px solid #ccc; 
+            margin: 20px 0;
+        }
+        .p-special{
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar"></nav>
+    <script src="../../js/nav_bar.js"></script>
+    <!-- Main content -->
+    <section class="container sproduct my-5 pt-5">
+        <div class="row mt-5">
+            <div class="col-lg-5 col-md-12 col-12 order-md-1">
+                <div class="main-image-container">
+                    <img class="main-image" id="main-image" src="https://clickere.in/cdn/shop/products/Doms-Neon-Eraser_580x.jpg?v=1698477768" alt="War And Peace Image">
+                </div>
+      
+                <div class="small-img-group">
+                  <div class="small-img-col">
+                      <img src="https://clickere.in/cdn/shop/products/Doms-Neon-Eraser_580x.jpg?v=1698477768" alt="War And Peace Image">
+                  </div>
+                    <div class="small-img-col">
+                        <img src="data:image/jpeg;base64,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" alt="War And Peace Image">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 offset-lg-1 col-md-12 col-12 order-md-2">
+                <h6><a href="../Stationary/Stationeries.html">Home</a> / <a href="../Stationary/Page7.html">Extras</a></h6>  
+                <h2>Doms Neon Erasser</h2> 
+                <h4>from Doms (Maker)</h4>
+
+                <div class="product-Rating">
+                    Rating: 
+                    <span class="Stars">
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star Empty">☆</span>
+                    </span> 
+                    <span id="RatingNumber">4</span> 
+                </div>
+
+                <p>Total price: <span style="font-size:1.5em;">₹5.00</span></p>
+                <p>Quantity: <span><input type="number" value="1" min="1"></span></p>
+                <button class="buy-btn">Add to Card</button>
+                <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var mainImage = document.getElementById('main-image');
+            var smallImages = document.querySelectorAll('.small-img-col img');
+            smallImages.forEach(function(img) {
+                img.addEventListener('mouseover', function() {
+                    mainImage.src = this.src;
+                });
+            });
+        });
+    </script>
+    
+    <br>
+    <hr>
+    <h2>Product description</h2>
+    <h3>About the Product</h3>
+    <p>
+        Paper products are diverse, including notebooks and journals (spiral, composition, and professional), notepads and sticky notes for quick, temporary notes, and loose-leaf paper (lined, graph, and blank) for various writing and drawing needs. These items collectively support tasks in education, professional settings, and personal projects.
+    </p>
+        <br>
+   <hr>
+   <h2>Product details</h2> 
+   <div>
+    <span style="font-size: 1.2em; font-weight: bold;">Maker :</span>
+    <span style="font-size: 1em;">Learning Tree; Sanjeev shoping India Pvt Ltd, 113A, Ansari Road, Daryaganj, New Delhi-110002, +9111-23265358</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Item Weight :</span>
+    <span style="font-size: 1em;">2 g</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Dimensions :</span>
+    <span style="font-size: 1em;">35.24 x 14.57 x 40.32 cm</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Country of Origin :</span>
+    <span style="font-size: 1em;">India</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Net Quantity :</span>
+    <span style="font-size: 1em;">10 count</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Importer :</span>
+    <span style="font-size: 1em;">Sanjeev shops</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Packer :</span>
+    <span style="font-size: 1em;">Sanjeev sheet works India Pvt Ltd</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Best Sellers Rank :</span>
+    <span style="font-size: 1em;">#1 in Extras</span>
+  </div>
+  <br>
+  <hr>
+  <div class="product-review">
+    <h2>Review this product</h2>
+    <p style="font-size: 1em;">Share your thoughts with other customers</p> 
+
+    <div class="product-rating">
+        Rating: <span class="stars">
+            <span class="star" onclick="setRating(1)">★</span>
+            <span class="star" onclick="setRating(2)">★</span>
+            <span class="star" onclick="setRating(3)">★</span>
+            <span class="star" onclick="setRating(4)">★</span>
+            <span class="star" onclick="setRating(5)">★</span>
+        </span> <span id="ratingNumber"></span>
+    </div>
+
+    <script>
+
+        function setRating(rating) {
+            let stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.classList.remove('empty');
+            });
+        
+            
+            for (let i = rating; i < 5; i++) {
+                stars[i].classList.add('empty');
+            }
+        
+            document.getElementById('ratingNumber').innerText = rating;
+        
+            console.log("Rating set to: " + rating);
+        }
+    </script>
+
+    <form id="comment-form">
+        <textarea id="comment" rows="4" cols="50" placeholder="Write your review here"></textarea>
+        <br>
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+<hr>
+<div class="comments">
+    <h3>Customer Reviews</h3>
+    <div class="comment">
+        <p>Ambani:</p>
+        <p>Very good.</p>
+    </div>
+    <div class="comment">
+        <p>Yash:</p>
+        <p>Time to buy one.</p>
+    </div>
+    <div id="comments-container"></div>
+</div>
+<hr>
+<!-- footer -->
+<div class="footer"></div>
+<script src="../../js/bottom.js"></script>
+<div class="footer-bottom">
+   <p>&copy; 2023 Learning Tree. All rights reserved.</p>
+ </div>
+<script>
+    document.getElementById("comment-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        
+        var comment = document.getElementById("comment").value;
+        var rating = document.getElementById("ratingNumber").innerText;
+
+        
+        if (comment.trim() === "") {
+            alert("Please write your review before submitting.");
+            return;
+        }
+
+        
+        var newComment = document.createElement("div");
+        newComment.classList.add("comment");
+        newComment.innerHTML = '<p id="user-name">User:</p><p>' + comment + '</p>';
+
+        
+        if (rating > 0) {
+            newComment.innerHTML += '<p>Rating: ' + generateStars(rating) + '</p>';
+        }
+
+        
+        var commentsContainer = document.getElementById("comments-container");
+        commentsContainer.appendChild(newComment);
+
+        
+        document.getElementById("comment").value = "";
+        
+        
+        document.getElementById("ratingNumber").innerText = "0";
+    });
+
+    
+    function generateStars(rating) {
+        var stars = "";
+        for (var i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars += '<span style="color: gold;">★</span>'; 
+            } else {
+                stars += '<span style="color: gold;">☆</span>'; 
+            }
+        }
+        
+        stars += ' (' + rating + ')';
+        return stars;
+    }
+
+    function setRating(rating) {
+        let stars = document.querySelectorAll('.star');
+        stars.forEach(star => {
+            star.classList.remove('empty');
+        });
+
+        for (let i = rating; i < 5; i++) {
+            stars[i].classList.add('empty');
+        }
+
+        document.getElementById('ratingNumber').innerText = rating;
+    }
+</script>
+
+
+</body>
+</html>

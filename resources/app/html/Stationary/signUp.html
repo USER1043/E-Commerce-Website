@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../../css/entry.css">
+    <script src="https://kit.fontawesome.com/f84acd84a0.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <h1>Sign Up</h1>
+        <form>
+            <div class="input-group">
+                <div class="input-field" >
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Name" id="username" required>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="Email" id="email" required>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" id="password" required>
+                </div>
+                <p>Already a user?<a href="../Stationary/signIn.html">Click Here!</a></p>
+            </div>
+            <div class="btn-field">
+                <button type="submit" id="SignUpbtn">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+let signUp = document.getElementById("SignUpbtn");
+let user = document.getElementById("username");
+let email = document.getElementById("email");
+let passwd = document.getElementById("password");
+
+
+signUp.onclick = function(event){
+    event.preventDefault();
+    if (user.value && email.value && passwd.value) {
+        window.alert("Sign Up Successful");
+        window.location.href = "../Stationary/homepage.html";
+    }
+}
+</script>
+</body>
+</html>

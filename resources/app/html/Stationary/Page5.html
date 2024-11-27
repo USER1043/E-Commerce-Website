@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pencils</title>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/nav_bar.css">
+   <style>
+        .btn{
+    min-width: 30vw;
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    transition: min-width 0.15s, font-size 0.15s;
+    cursor: pointer;
+}
+
+.btn:hover{
+    min-width: 32vw;
+    font-size: 2rem;
+}
+.styled-button {
+            background-color: crimson; 
+            border: none;             
+            color: white;          
+            padding: 15px 32px;       
+            text-align: center;      
+            text-decoration: none;    
+            display: inline-block;   
+            font-size: 16px;         
+            margin: 4px 2px;          
+            cursor: pointer;          
+            border-radius: 12px;
+            align-items: center;      
+        }
+
+        .styled-button:hover {
+            background-color: rgb(171, 0, 34); 
+        }
+      </style>
+    <script src="https://kit.fontawesome.com/f84acd84a0.js" crossorigin="anonymous"></script>
+</style>
+<script src="https://kit.fontawesome.com/f84acd84a0.js" crossorigin="anonymous"></script>
+  <style>
+      * {box-sizing: border-box;}
+      body {font-family: Verdana, sans-serif;}
+      .mySlides {display: none;}
+      img {vertical-align: middle;}
+      
+      
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+      
+      
+      .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+      
+      
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      
+      
+      .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      
+      .active {
+        background-color: #717171;
+      }
+      
+      
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+      
+
+      @media only screen and (max-width: 300px) {
+        .text {font-size: 11px}
+      }
+      </style>
+    </head>
+    <body>
+        <!-- navigation bar -->
+    <nav class="navbar"></nav>
+    <script src="../../js/nav_bar.js"></script>
+    
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmTtPombyZ9WR1vr1PDc9oaN63TNPL8pdz8tgZVwiqjTbs59wB-hHj-hMuQ5nIqUr6WE8&usqp=CAU" width="1000vw" height="450vh">
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="https://5.imimg.com/data5/GLADMIN/Default/2023/1/JA/PP/TG/41615788/apsara-platinum-extra-dark-pencil-500x500.jpg" width="1000vw" height="450vh">
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="https://i.ytimg.com/vi/M8k1U3vk5RE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD5SXqDT9O_NIUsMSiAWHoeh0nMgQ" width="1000vw" height="450vh">
+            </div>
+            <div class="mySlides fade">
+              <img src="https://i.ytimg.com/vi/OOfhdcsTsfk/hqdefault.jpg" width="1000vw" height="450vh">
+            </div>
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span>
+              <span class="dot"></span> 
+            </div>
+            
+            <script>
+            let slideIndex = 0;
+            showSlides();
+            
+            function showSlides() {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1}    
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+              setTimeout(showSlides, 5000);
+            }
+            </script>
+            <br/>
+            <hr size="5px" color="red"/>
+            <a href="../ProductDescription/pencil1.html" target="_self">
+            <img class="btn" src="https://www.scholarshoppe.com/wp-content/uploads/2020/06/camlin-flora-pencils.jpg" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 52vw; left: 10vh;" >
+            <p style="position: absolute; top: 77vw; left: 25vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Camlin Flora<br/>
+                rs:36</p>
+        </a>
+        <a href="../ProductDescription/pencil2.html" target="_self">
+      <img class="btn" src="https://images-eu.ssl-images-amazon.com/images/I/61XU5XKCHTL._AC_UL600_SR600,600_.jpg" atl="Pen_home" width="400vw" height="400vh" style="position: absolute; top: 52vw; left: 75vh;" >
+      <p style="position: absolute; top: 77vw; left: 88vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Camlin Kokuyo<br/>rs:60</p>
+    </a>
+        <a href="../ProductDescription/pencil3.html" target="_self">
+      <img class="btn" src="https://www.kokuyocamlin.com/camlin/camel-access/image/catalog/assets/camlin/pencils-and-accessories/wooden-pencils/box-of-10-pencils/box-of-10-pencils/6.JPG" atl="Pencil_home" width="380vw" height="380vh" style="position: absolute; top: 54vw; left: 130vh;" >
+      <p style="position: absolute; top: 77vw; left: 145vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Camlink black<br/>rs:35</p>
+    </a>
+
+    <a href="../ProductDescription/pencil4.html" target="_self">
+        <img class="btn" src="https://www.jiomart.com/images/product/original/491238750/classmate-da-vinci-ii-0-7-mm-mechanical-pencil-product-images-o491238750-p590797784-2-202205172218.jpg?im=Resize=(420,420)" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 85vw; left: 10vh;" >
+        <p style="position: absolute; top: 110vw; left: 25vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Classmate DaVinci<br/>
+            rs:14</p>
+    </a>
+    <a href="../ProductDescription/pencil5.html" target="_self">
+  <img class="btn" src="https://m.media-amazon.com/images/I/41pg+BNWIAL.jpg" atl="Pen_home" width="400vw" height="400vh" style="position: absolute; top: 85vw; left: 75vh;" >
+  <p style="position: absolute; top: 110vw; left: 88vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Classmate 2B Carbon Blackt<br/>rs:40</p>
+</a>
+    <a href="../ProductDescription/pencil6.html" target="_self">
+  <img class="btn" src="https://m.media-amazon.com/images/I/31Df8rCVUgL.jpg" atl="Pencil_home" width="380vw" height="380vh" style="position: absolute; top: 85vw; left: 130vh;" >
+  <p style="position: absolute; top: 110vw; left: 145vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Classmate Spear 2.0<br/>rs:30</p>
+</a>
+
+
+<a href="../ProductDescription/pencil7.html" target="_self">
+  <img class="btn" src="https://www.rangbeerangee.com/wp-content/uploads/2021/05/Apsara-Matt-Magic-2.0.jpg" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 120vw; left: 10vh;" >
+  <p style="position: absolute; top: 143vw; left: 25vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Apsara Matt Magic<br/>
+      rs:40</p>
+</a>
+<a href="../ProductDescription/pencil8.html" target="_self">
+<img class="btn" src="https://www.vmart-india.com/cdn/shop/products/APSARAPENCIL_grande.jpg?v=1618140889" atl="Pen_home" width="400vw" height="400vh" style="position: absolute; top: 120vw; left: 75vh;" >
+<p style="position: absolute; top: 143vw; left: 88vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Apsara Platinum<br/>rs:32</p>
+</a>
+<a href="../ProductDescription/pencil9.html" target="_self">
+<img class="btn" src="https://4.imimg.com/data4/CQ/KR/MY-29376586/natraj-pencil.jpg" atl="Pencil_home" width="380vw" height="380vh" style="position: absolute; top: 120vw; left: 130vh;" >
+<p style="position: absolute; top: 143vw; left: 145vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Nataraj Be a basic B<br/>rs:30</p>
+</a>
+
+
+<a href="../ProductDescription/pencil10.html" target="_self">
+  <img class="btn" src="https://helloaugust.in/wp-content/uploads/2020/07/faber-castell-tri-colour-pencil-full-size-24-shades.jpg" atl="Notebooks_home" width="400vw" height="400vh" style="position: absolute; top: 150vw; left: 75vh;" >
+  <p style="position: absolute; top: 173vw; left: 90vh; color: rgb(188, 21, 21);font-size: 1.5vw;font-family: 'Times New Roman', Times, serif;">Faber Castell Colour pencils<br/>
+      rs:150</p>
+
+    </body>
+    <body>
+      <a href="../Stationary/Stationeries.html" style="position: absolute;top: 340vh;left: 45vw;"><button class="styled-button">Back To Stationeries</button></a>
+  </body>
+</html>

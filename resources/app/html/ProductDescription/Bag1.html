@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import "../../css/nav_bar.css";
+        @import "../../css/bottom.css";
+        a:hover {
+            color: #fff; 
+            text-decoration: none; 
+        }
+        body {
+            padding-top: 80px; 
+            padding-bottom: 80px; 
+            margin: 0;
+            box-sizing: border-box;
+            overflow-y: scroll; 
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .main-content {
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            height: calc(150% - 160px); 
+        }
+
+        .main-image-container {
+            position: relative;
+            overflow: hidden;
+            width: 300px; 
+            height: 400px; 
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .small-img-group{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+              
+        }
+
+        .small-img-col{
+            float: left;
+            flex-basis: 24%;
+            cursor: pointer;
+            margin-right: 5px;
+            width: 80px; 
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .small-img-col img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .sproduct input{
+           width: 30px; 
+           height: 20px;
+           padding-left: 10px;
+           font-size: 16px;
+           margin-right: 10px;
+        }
+
+        .sproduct input:focus{
+            outline: none;
+        }
+
+        .sproduct input[type="number"] {
+            width: 60px;
+            height: 30px; 
+            padding-left: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .buy-btn {
+           background: red;
+           opacity: 1;
+           color: white; 
+           border-radius: 20px; 
+           padding: 8px 20px;
+           border: none;
+           cursor: pointer;
+           transition: background-color 0.3s; 
+        }
+
+        .buy-btn:hover {
+            background-color: darkred; 
+        }
+
+
+        .product-detail{
+            line-height: 2;
+        }
+
+        body {
+            padding-left: 20px; 
+            padding-right: 20px; 
+        }
+
+        .stars {
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .star {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .star.empty {
+            color: #ccc;
+        }
+
+        .Stars .Star {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .product-rating {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .product-review {
+            margin-bottom: 20px;
+        }
+
+        #comment-form {
+            width: 500px; 
+            max-width: 100%;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px; 
+            border: none; 
+            overflow: hidden;
+            
+        }
+
+        #comment {
+            width: calc(100% - 20px); 
+            height: 100px; 
+            resize: vertical;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: none; 
+            border-radius: 5px;
+            background-color: #f0ecec; 
+            box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+        }
+
+        #comment-form button {
+            padding: 8px 20px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+
+        #comment-form button:hover {
+            background-color: darkred;
+        }
+        .back-to-top {
+            color: #fff; 
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: rgb(55, 33, 33);
+            transition: background-color 0.3s; 
+            outline: none; 
+            box-shadow: none; 
+        }
+
+        .back-to-top:hover {
+            color: #fff; 
+            background-color: darkred;
+        }
+
+        .back-to-top:focus, 
+        .back-to-top:active {
+            outline: none; 
+            box-shadow: none; 
+        }
+        hr {
+            border: none; 
+            border-top: 2px solid #ccc; 
+            margin: 20px 0;
+        }
+        .footer-section p,
+        .footer-section a {
+            font-size: 0.8rem;
+            color: black;
+            margin: 5px 0;
+            text-decoration: none;
+        }
+        .p-special{
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar"></nav>
+    <script src="../../js/nav_bar.js"></script>
+    <!-- Main content -->
+    <section class="container sproduct my-5 pt-5">
+        <div class="row mt-5">
+            <div class="col-lg-5 col-md-12 col-12 order-md-1">
+                <div class="main-image-container">
+                    <img class="main-image" id="main-image" src="https://wildcraft.com/media/catalog/product/1/_/1_415.jpg" alt="War And Peace Image">
+                </div>
+      
+                <div class="small-img-group">
+                  <div class="small-img-col">
+                      <img src="data:image/jpeg;base64,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" alt="War And Peace Image">
+                  </div>
+                  <div class="small-img-col">
+                      <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/2/5/253391f8903338507802_6.jpg?rnd=20200526195200&tr=w-512" alt="War And Peace Image">
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 offset-lg-1 col-md-12 col-12 order-md-2">
+                <h6><a href="../Stationary/Stationeries.html">Home</a> / <a href="../Stationary/Page2.html">Bags</a></h6> 
+                <h2>Wildcraft Bravo Teal</h2> 
+                <h4>from Wildcraft (Maker)</h4>
+
+                <div class="product-Rating">
+                    Rating: 
+                    <span class="Stars">
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star Empty">☆</span>
+                    </span> 
+                    <span id="RatingNumber">4</span> 
+                </div>
+
+                <p>Total price: <span style="font-size:1.5em;">₹2000.00</span></p>
+                <p>Quantity: <span><input type="number" value="1" min="1"></span></p>
+                <button class="buy-btn">Add to Card</button>
+                <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var mainImage = document.getElementById('main-image');
+            var smallImages = document.querySelectorAll('.small-img-col img');
+            smallImages.forEach(function(img) {
+                img.addEventListener('mouseover', function() {
+                    mainImage.src = this.src;
+                });
+            });
+        });
+    </script>
+    
+    <br>
+    <hr>
+    <h2>Product description</h2>
+    <h3>About the Product</h3>
+    <p>Introducing the perfect blend of style and functionality with our Everyday Tote Bag. Crafted from durable, high-quality materials, this versatile bag is designed to meet all your daily needs. Its spacious interior features multiple pockets, ensuring you stay organized whether you're heading to work, running errands, or embarking on a weekend getaway. The sleek, minimalist design pairs effortlessly with any outfit, while the comfortable straps provide ease of carrying. Available in a variety of chic colors, the Everyday Tote Bag is your go-to accessory for combining practicality with timeless elegance.</p>
+   <br>
+   <hr>
+   <h2>Product details</h2> 
+   <div>
+    <span style="font-size: 1.2em; font-weight: bold;">Maker :</span>
+    <span style="font-size: 1em;">Oppenhimer Bags; Prajan Bags India Pvt Ltd, 113A, Ansari Road, Daryaganj, New Delhi-110002, +9111-23265358</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Bag rear material :</span>
+    <span style="font-size: 1em;">foam</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Item Weight :</span>
+    <span style="font-size: 1em;">250 g</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Dimensions :</span>
+    <span style="font-size: 1em;">35.24 x 14.57 x 40.32 cm</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Country of Origin :</span>
+    <span style="font-size: 1em;">India</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Net Quantity :</span>
+    <span style="font-size: 1em;">1 count</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Importer :</span>
+    <span style="font-size: 1em;">Prajan Books</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Packer :</span>
+    <span style="font-size: 1em;">Oppenhimer Books India Pvt Ltd</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Best Sellers Rank :</span>
+    <span style="font-size: 1em;">#1 in Bags</span>
+  </div>
+  <br>
+  <hr>
+  <div class="product-review">
+    <h2>Review this product</h2>
+    <p style="font-size: 1em;">Share your thoughts with other customers</p> 
+
+    <div class="product-rating">
+        Rating: <span class="stars">
+            <span class="star" onclick="setRating(1)">★</span>
+            <span class="star" onclick="setRating(2)">★</span>
+            <span class="star" onclick="setRating(3)">★</span>
+            <span class="star" onclick="setRating(4)">★</span>
+            <span class="star" onclick="setRating(5)">★</span>
+        </span> <span id="ratingNumber"></span>
+    </div>
+
+    <script>
+
+        function setRating(rating) {
+            let stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.classList.remove('empty');
+            });
+        
+            
+            for (let i = rating; i < 5; i++) {
+                stars[i].classList.add('empty');
+            }
+        
+            document.getElementById('ratingNumber').innerText = rating;
+        
+            console.log("Rating set to: " + rating);
+        }
+    </script>
+
+    <form id="comment-form">
+        <textarea id="comment" rows="4" cols="50" placeholder="Write your review here"></textarea>
+        <br>
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+<hr>
+<div class="comments">
+    <h3>Customer Reviews</h3>
+    <div class="comment">
+        <p>John Cena:</p>
+        <p>Being Chilling! bag.</p>
+    </div>
+    <div class="comment">
+        <p>Ben Dower:</p>
+        <p>Seen better quality but still not bad.</p>
+    </div>
+    <div id="comments-container"></div>
+</div>
+<hr>
+<!-- footer -->
+<div class="footer"></div>
+<script src="../../js/bottom.js"></script>
+<div class="footer-bottom">
+   <p>&copy; 2023 Learning Tree. All rights reserved.</p>
+ </div>
+<script>
+    document.getElementById("comment-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        
+        var comment = document.getElementById("comment").value;
+        var rating = document.getElementById("ratingNumber").innerText;
+
+        
+        if (comment.trim() === "") {
+            alert("Please write your review before submitting.");
+            return;
+        }
+
+        
+        var newComment = document.createElement("div");
+        newComment.classList.add("comment");
+        newComment.innerHTML = '<p id="user-name">User:</p><p>' + comment + '</p>';
+
+        
+        if (rating > 0) {
+            newComment.innerHTML += '<p>Rating: ' + generateStars(rating) + '</p>';
+        }
+
+        
+        var commentsContainer = document.getElementById("comments-container");
+        commentsContainer.appendChild(newComment);
+
+        
+        document.getElementById("comment").value = "";
+        
+        
+        document.getElementById("ratingNumber").innerText = "0";
+    });
+
+    
+    function generateStars(rating) {
+        var stars = "";
+        for (var i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars += '<span style="color: gold;">★</span>'; 
+            } else {
+                stars += '<span style="color: gold;">☆</span>'; 
+            }
+        }
+        
+        stars += ' (' + rating + ')';
+        return stars;
+    }
+
+    function setRating(rating) {
+        let stars = document.querySelectorAll('.star');
+        stars.forEach(star => {
+            star.classList.remove('empty');
+        });
+
+        for (let i = rating; i < 5; i++) {
+            stars[i].classList.add('empty');
+        }
+
+        document.getElementById('ratingNumber').innerText = rating;
+    }
+</script>
+</body>
+</html>

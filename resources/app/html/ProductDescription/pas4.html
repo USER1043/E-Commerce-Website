@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        @import "../../css/nav_bar.css";
+        @import "../../css/bottom.css";
+        a:hover {
+            color: #fff; 
+            text-decoration: none; 
+        }
+        body {
+            padding-top: 80px; 
+            padding-bottom: 80px; 
+            margin: 0;
+            box-sizing: border-box;
+            overflow-y: scroll; 
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .main-content {
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            height: calc(150% - 160px); 
+        }
+
+        .main-image-container {
+            position: relative;
+            overflow: hidden;
+            width: 300px; 
+            height: 400px; 
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .small-img-group{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+              
+        }
+
+        .small-img-col{
+            float: left;
+            flex-basis: 24%;
+            cursor: pointer;
+            margin-right: 5px;
+            width: 80px; 
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .small-img-col img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .sproduct input{
+           width: 30px; 
+           height: 20px;
+           padding-left: 10px;
+           font-size: 16px;
+           margin-right: 10px;
+        }
+
+        .sproduct input:focus{
+            outline: none;
+        }
+
+        .sproduct input[type="number"] {
+            width: 60px;
+            height: 30px; 
+            padding-left: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .buy-btn {
+           background: red;
+           opacity: 1;
+           color: white; 
+           border-radius: 20px; 
+           padding: 8px 20px;
+           border: none;
+           cursor: pointer;
+           transition: background-color 0.3s; 
+        }
+
+        .buy-btn:hover {
+            background-color: darkred; 
+        }
+
+
+        .product-detail{
+            line-height: 2;
+        }
+
+        body {
+            padding-left: 20px; 
+            padding-right: 20px; 
+        }
+
+        .stars {
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .star {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .star.empty {
+            color: #ccc;
+        }
+
+        .Stars .Star {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .product-rating {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .product-review {
+            margin-bottom: 20px;
+        }
+
+        #comment-form {
+            width: 500px; 
+            max-width: 100%;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px; 
+            border: none; 
+            overflow: hidden;
+            
+        }
+
+        #comment {
+            width: calc(100% - 20px); 
+            height: 100px; 
+            resize: vertical;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: none; 
+            border-radius: 5px;
+            background-color: #f0ecec; 
+            box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+        }
+
+        #comment-form button {
+            padding: 8px 20px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+
+        #comment-form button:hover {
+            background-color: darkred;
+        }
+
+        
+        .back-to-top {
+            color: #fff; 
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: rgb(55, 33, 33);
+            transition: background-color 0.3s; 
+            outline: none; 
+            box-shadow: none; 
+        }
+
+        .back-to-top:hover {
+            color: #fff; 
+            background-color: darkred;
+        }
+
+        .back-to-top:focus, 
+        .back-to-top:active {
+            outline: none; 
+            box-shadow: none; 
+        }
+
+       .footer-section p,
+        .footer-section a {
+            font-size: 0.8rem;
+            color: black;
+            margin: 5px 0;
+            text-decoration: none;
+        }
+
+        hr {
+            border: none; 
+            border-top: 2px solid #ccc; 
+            margin: 20px 0;
+        }
+        .p-special{
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar"></nav>
+    <script src="../../js/nav_bar.js"></script>
+    <!-- Main content -->
+    <section class="container sproduct my-5 pt-5">
+        <div class="row mt-5">
+            <div class="col-lg-5 col-md-12 col-12 order-md-1">
+                <div class="main-image-container">
+                    <img class="main-image" id="main-image" src="https://5.imimg.com/data5/SELLER/Default/2021/2/QC/WE/ZU/122094550/11.jpg" alt="War And Peace Image">
+                </div>
+      
+                <div class="small-img-group">
+                  <div class="small-img-col">
+                      <img src="https://5.imimg.com/data5/SELLER/Default/2021/2/QC/WE/ZU/122094550/11.jpg" alt="War And Peace Image">
+                  </div>
+                  <div class="small-img-col">
+                      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSExMWFRUVFRcVGBgWFRoXGBcXFRUWFxUXFxcYHSgiGBolHRUWITEhJikrLi4uGB8zODMtNygtLysBCgoKDg0OFxAQFy0dHRktLSsrLi0rLTcuKy4rLCsrLS03NzEtLy0zListLS0rLSsrLS8rLS0rMC0tLSstLSsvLf/AABEIAKABOwMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAwQBAgUGB//EAD4QAAEDAgIIBAQEBQMEAwAAAAEAAhEDIQQxEkFRYXGRofAFgbHREyLB4QYyQvEUI1KSsnKC4gdiotIWM4P/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EAC4RAQADAAEBBQYFBQAAAAAAAAABAhEDIRIxQWHwBBMUInGRMlGx0eEjQoGhwf/aAAwDAQACEQMRAD8A+4oiICIiAiIgIiICIiAiIgIiICIiAiIgIiICLR1QDWtHYgIJkVU4gqM1CdaC454GZWjsQOKqIgmdijqCjdWcda1WIQbMqka1Zp4gHOyqQkIOiEVBlQjJWKeJGuyCdFgFZQEREBERAREQEREBERAREQEREBERARFgmEGUUZrBRnEbAgsIqhrFRkoLjqo2qM4jYFXRBK6uVGXE5lYRBhIWUQYhFlEGEWUQYRZWEBERAWCsogMeRkrFPE7VXWEHQBlZXPa4jJWGYnagsIsNcDksoCIiAiIgIsEqjivGsPT/ADVWzsBk8hdSbRHWZxqtZtORGr6LzWN/F7GtmlSfUzgkhjZGokyRyXJwXjfiWLqBlNlPD0zJdU0HVi2NjyWtJOURv1LnTm4rzlbx92b/ACW7NomJ+j3arVMdTB0S8aX9IMu/tF1yv/jznD+biatTbk0Hi0fLyC41TxAU3nCswTg4yGis/RFYgH9TZY5u4utP5dS737NY6Ts+vXc4e9tE/NGR68I/d6mh4kKhim0u/wC6IaPM+gutsTSrO/JUYz/8y489MDovLvPifwgH6NGppED4Jomg1k/LPxhp6UaxaxsLKLwnwRxb8OviaOIc4lxeaBrPbMkaNao4tAGr5IsbWXOa2jvnfo9vHFZ2dzPLf4etwmDewEOrPqEmZcGCNwDGiBxlHsIzXGf+IsDgqQZUxgdoyJL/AItQkQSC2mDBuLAAAEWC834p/wBX8K2RRoVax1F0UmHzMuH9q604b2j5auN7Rs9XukXy7wn/AKo4mtWgYL4tOwLMOH1KrDtnJ2qxDeK+nUKmk1rtFzdITD26LhuI1FXk4rcfSyRaJ7m6Ii5qIiICIiAiIgIiICIiAiIgIiICwsogwiIgIiIAMZKdmI2qAqJ+IaP1Dyv6IOm1wOS2XFdjoyB8zC3b4hUj9P8AafdB11xPxBia4+Wg9jHaIIL2lwNzYwQRlmJjYV21yfGR8w2R9UWHz/EeJeJaRbU+E3ZLXEO3t/mQQquJo4ip+etSZt0aRB/uDiR5L3FWiHCCNIHUfXfxF1w/EKNTDj42Hw4xJbcU3VNEt/7gNE/Fj+mQeJXk9o+LvfOKYitvKOn3d68/YyYjrHnP6ROIPBvwBUtU+L8OYMhhDtosXeq9/wDENGk3TLqhEAuDWg/6iBAA4WHBfHHfjLxvFktoU3MEkfyMOYEGNF1SrpBp82rFP8E+LVnsq4is5jgdNpqVX1ntc2CNFtPSaDu0gvdxewRxfivGz68GOf23k5pib9cfRvGPxzhaDNKpVYySNHOqHSSMqOleRrgXzzjk4z8Xv0sRT0aunhzovY0021CajQW/CYxzy+ARLiWC5vIga0fwU8ltStiK7XAfMcMDh21XaUTUo03Ol15lgZOuIV7D/hrDGrp/AY+sRpF1UNe8uiNLSrl7xcRZo1DUZv8ASj85ce1LzLPHMVW0qlOm4aGVL+GD6lUm3wzU+NVdRME/O6mG3dJ+YzP4l4VXxQaDSqMDjpO/iMQ2sQJ/I2hoYinogwdLRYSSBbJe+p+Eyfm0Y2XfGZEaR0RBP9GoLWvhtGS8kgze5AOoltmcwr7zO6IhJ2fN4an+BKdSlRpYqsD8Fzw1tGk3Dva17i5zSxmkxwJBOk1jTbOJXa8N/AuAZBbTpyYj4rTUfpTNxXmJ2BoXoaTywfy2yCRaBYxsaBBy1xvGqbDy784DXZ6TSATfWLwIjXyWZ5b+Nv8ACxX84a+HuYxui3TDIkF4LWjYBMRwjUrtOq18wQ6DBgzBGpVXUW2LWCoYI0iQbE3bJm27JTNbUn8zQ0ag0yRvM2WFZfQ2KAtVt9VozIHEwti0FNFJIUz6GxQkICIiDCLKIMIsrCAiyiDCIiAiw5wGZA4qB2MZqM8BKCwioux+xvM/QKCpjXf1Rwt7lFx1CoX4pg1zwuuY55Ocnj7n2WJPd/shi8/HbG8z9AoKmLdtjhA9bquePW3ILLW7BytyOahjLnTcyd5n1MLGls9/SymZhXHVG85q9R8Jn8z5G7JF1y+9nQKSmBGQ78126Xh1Nv6Z43VkMGwImtlzsZo1DAs5sjrs1iy6K4eLH8x0WM98FUQVKZab29DwWpE5598/XirlOuDZ3fHYVpWwuy42ax7/AGRda0Ma9md28+R+i6+GxTXixvs1rgnv77df2WAIMix7y9j91B6KtRa8Q4SOPtxVM4bQElzgAcqbIzOxoLjf7qHCeKan8/ddRrgRIMqszCpTqOA0WU3EAWNR8cyZdq6jfDEFwu6q1jeAmwBI0nWORvGXNT16GlmXAQRAMTO1Yp4RjbhonbEnmboYi0RUEscYkg28tdx+6rvw2lYsvb8/zCYz0QQ2L3iOGzoVGE5OLeEfUFc/FeGOc7S03HKAXuEQALAGNS481/d17UVm30zf9zDVY3vlG50C9QNAmzBMHM2piQM9e9RYLxLDvqfDpVWkkyWiswHIyQ1ri4njGS53jXhbqrXUSQ5kiWuNV5MaoyImdoyyN1T/AA5+EKVCqKoAfUb+TSeNBljLgyS4ug5nkFmtr2/t6eb004uDsTN7z2vCIj+XtqdFoyaB5d7ByUipuxRYAHjScZI0GmIEZk2m+UydQMFcCr+IcW+pXpUMG7SokAF5a1tUFrSCwuc0j8xvBFjebLvEY8r1ai02OtIJ3ESvG+NeHYmoxrsRXDaek34jKjYGiWnSDPhucx5mP/sY7XuXnPCsBgcC/TwelUeJipVbTlszLaYFIFoveAJ27Vp7NZvPdHitMveOOJjZ8NfQ/GcfTwzRUquIYXhmlBOiXTBdGQtE79iloVmvaHscHNcJDmkEEbiM1868ZxtbEN0alQlmejBDSRr3wqvhGExNF04Z7mybthxY7/UxwvskQd68Xx/FvSdh6fh5jazW0THjnyz/ANj7PqaLk+F+J1HN/n0/huGsGWngCdJp3GeKtP8AEG6gTvyHM2XsraLRsPPas1nJXEXMf4i7VA8p+3VV34lxsXE7vsPdaTHYfUAzIChdjWapPAW5rk6Xf2ueqXPc9TcKGL7/ABA6gB1/xsq78W45uPlA/wAZUHXiZK2aJsJ4D6gIoTu529ZSZ/af8lMzCPOqONvuOSmZgP6jy9/shqkd55mR0WWjUAZ5H7rpswrRqnj7ZKVrYsBHBE1zWYVx1R3rm6mbgdp+vJW3PAzIURxI1SfTmqaMwrRq78lK0RkI4KscSTkB1Poo3Vjrd6D0QxeJ8lp/FBuRvuVGfPvesaXD19EMdzBYnTm0RHWdXkrK5vg/6v8AbqjaukiMErj45nzE6jr8sij6xa4tIkSY2xNoOtTscHC1x3mgoEbe/cblJSrltjcd5bVJWoaxy9lBPffqoq0+k14kcx9dqp1aRbmPPUe/dZYS0y08R77RvVylWD7a9YPd1Uc47/v5H6HmFJQruZcG2zvJT1sJrby9j3mVViPTv2RXawuOa/cVbXmY2WPeWw7uUq7hPESLORGvinj3w3mm2mS4N0tJ5LGEnJocGuLnbgCt/CPFn1nuaaOi1rZ0w/SbpE/lEtE67i1l1KdQOEgriY/DOZGk/TDY0PkD6oOTiS90EGP0gZjKJU6sxW0z+JH4vhBVeZxNiQAxrS4tEARDXWkgmYGe5VG+HUWkNqEls30joznbQc4vcbbBY7oUjq5IaCwfL8oc98BwJE/LT0W5AtEjKJ1gxQ4C9QtEARTa2mDGUz+YWFp1Qt9u2ZrXuabs+vX0X6/jBptL3/y6YECWik1oFgZqkOOeQYT8otcB3BH/AFGDiRSw9WrawYMzqOkdX+xT1cHScdJzA9213zZ5mDAnep2vgQ0QBqFujY+qkTWO+NdJivg8xiKnimIcdIvoU3ZB9doInURTYwnkrlDwGpY1qwMRZrA241h7oJ5LtBx4cLDm36po92H2KzHSdrMxvnP7tXv26xW1aznd8sb+iOjhWMyEna75ieJOiCp/iahls+wj1WgHf2yWwE2F92fILFeOlZ2IiGJtM98gce/tcIBr7/uU7MI86iONvurDPDtruQnqVtNUI71+xWwE2Andq5LqswTBqnjdS6bWjMAbvsqmuZTwjzqjjb7qdnh39TuQ9/ZWDi26pPAW5qJ2MJyA5z/iglZhGDVPG/TJTWGwDkuc7EO/q5QPSSoyfPvabdEMdF2IaNfJROxY1A+cBU9I9mfSyRx6N9M1DFh2KduHl9TCidVJzJPn7KO3dz1W0HLp/wAUUnd6D7rHdhP+Skbh3bI733UrcHtPqfZDVY7+pnoFkbug+qs6NNuuevosnEAZN52VNQCg46vMqzQwJdm8DcFG7EO3DvaVGyp8zSTMOB25GeCiOzhMIKcxN8/KfdWERVHH8QbDzsMHpGXkq7SQZb37rr4vCh95grl1aRaYIj0PBFT0cQDY2PQ8FmtRm+R9eKqET367eIut6VctsbjvI60GjgQYWpGvI7cv2Pe5X4a8SD5jMKnVpFvvq+ygmoYrU6x2+6mq0g7PmqG7sd7P2UtGuW2N26vt39VRrWw5bvHeagI2/fy9jz1LqseCJBUFbCg3Fj0+yIpNqObkbbdh4HXuO3yVV1YnaTncxfdEkf3K09hBgiD3tzHYhUwLwBPewT9FGoY0zM5Hdn5n83VNHX1/5a/NWKeDqH9Mcfl9bqwzws5ucPIT1KGqAA4+XrNuqyL2GerWfL910hQotufm3kl3OLc1uMW0CGttusObZCGqNPBvP6SN5t91Yp+GbXDyE9StnY46oHUjlIUL8S4/qPQDlf0ROq2MJTbnf/Uewt/4hjbDkBHsubpd3PPV0WJPl0/8bKmL78bujiY6GFE7GO4cB7wqwHeX2KR3+9lFxu+qTmSfPv1WsnuAffqsbu+SlZRcch0t1QRnu0/5XCHf1Mq0zBHWQOvpClbg2i5J9PRDVHvsrZtMnITvz6hXdOm3ZO655rV+M2DmYRETcI7Xbzj0lSNwQ1nkPeVo7FO3Dy+rlC6pOsnmfSAgtkU25xznpksHEgWAtyCpzujp0bdO7COpui4sOxLtw8vqVC585mfMn7LQx3c+y2AJsAeH21oGl5cbdBdL/sI6m6s0sA86oHL7q1T8KH6nTw90Ncs93nqt2U3H8oJ6c4XbpYNjcmjzupwETWURFUFpVphwghbog5OKwRbcXHUKpPeo97V6FU8TgQ67bHofZBymyDLTfvmFao4kOs6x6FVqlMtMEQe7hakT367e+KirFbDRll1HuFBPe3vbu16pKOILbG458jrU7qbXiQqKjHFtxlrHv7/urtGuHcdipuaQd/ffcrQt2cto1x7Z+pC9Vqs1kGPOOMZKH+MAHyttyHS3ULmlx3d7C6eizBOd+N/W/JFxafjXHWBwvzif8lA+rOd+J9M/VaRv79eYWe9n78lALjO/r5Eyeqwb53436H6LZjSfyif9InnqU7cG86o4n6BBWI77grPfZzCvM8P2u5COql/h6bc4neb8kNc4X48z0UrMM86iONv3Vz+KYLC+4D6KJ+NOwDifpY9FUYZgTrI8hPqphhWDPqbclVfiXHWfK3rHoodOd+3M9Leig6HxmNsOgv8AdaPxu7mY6ZqiHHs/Rv1CyB2LdR9VTFh+KdtjgI6uhQl87TzPSy0Ed/ey23dPsoppHs/RqDuLdVPTwdQ5NI3m3rdWqfhJ/U4eV+tvRBzbd3PstgJtBO7/AI+y7dLw5g1E8T9BA6KyxgFgABuEKprh08DUOTYG+3rdWqfhX9TuV+tvRdRENVaXh7BqnifoLKwxgAgAAbhC2REEREBERAREQEREBERBHWohwhwlcrFYJzbi427OPvxXZRB52e+9ftrWWki7eXeYnXv2rqYrAA3bY7NR9iua9haYIIPevpKKnZVa8QbHvI95KGtRI4be8jvUbh5Hbq89nHLhkpqOKIs5BTbQccmmOHvAUzcA45wPOeQFldq4prcz9OpgdVXfjjqAA2nLrA5SoNmeHjWSeFgpPhU26m+dz5SqFTEk5uPl7/KOhUWnq26v+IgdChjpvxrchJPerPooH407h6+Wv/xVKSdftyGXmEDe/wBrIuJn4hxzJPQcj/6qIO1AfXp9liO/tceiye5+90GZJ1+3JuXJA3uw9LKSlQe78rSd8W5lW6fhTzmQ3qelkNUAB37ZLJ7n2XZpeEsGZJ3ZDkFbpYdjcmgeV+aqa4NPCvdk08chzKt0/CXH8xA6n2XYRDVKn4YwZy7iYHIK1TpNbkAOAW6IgiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgLSrSDhBC3RByMVgi24uPRVOOXpw2cMuGv0SpYrAB122PRBw6oi416xY8JIkcLKOL++fnN+Uq3Vwz8tEzwJtxGpbU/C6hzEcT9GqNapxtPv9/MLMao5+sLr0vBwPzOP+0AeW9W6WAptyYPO/rkia4FOm535QTwBI5nJW6fhVQ5w3iZPSy7qKmubS8IaPzOJ4WHJW6WEY3Jo9TzKnREEREBERAREQEREBERAREQEREBERAREQEREBERB/9k=" alt="War And Peace Image">
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 offset-lg-1 col-md-12 col-12 order-md-2">
+                <h6><a href="../Stationary/Stationeries.html">Home</a> / <a href="../Stationary/Page6.html">Papers and Sheets</a></h6>   
+                <h2>A3 Sheets(250)</h2> 
+                <h4>from Camlin (Maker)</h4>
+
+                <div class="product-Rating">
+                    Rating: 
+                    <span class="Stars">
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star">★</span>
+                        <span class="Star Empty">☆</span>
+                    </span> 
+                    <span id="RatingNumber">4</span> 
+                </div>
+
+                <p>Total price: <span style="font-size:1.5em;">₹375.00</span></p>
+                <p>Quantity: <span><input type="number" value="1" min="1"></span></p>
+                <button class="buy-btn">Add to Card</button>
+                <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var mainImage = document.getElementById('main-image');
+            var smallImages = document.querySelectorAll('.small-img-col img');
+            smallImages.forEach(function(img) {
+                img.addEventListener('mouseover', function() {
+                    mainImage.src = this.src;
+                });
+            });
+        });
+    </script>
+    
+    <br>
+    <hr>
+    <h2>Product description</h2>
+    <h3>About the Product</h3>
+    <p>
+        Discover the perfect blend of size and quality with our A3 Sheets, designed to meet all your large-format printing and creative needs. These premium sheets offer a smooth, high-opacity surface that ensures vivid colors and sharp text, making them ideal for posters, presentations, artwork, and technical drawings. Compatible with all types of printers and copiers, our A3 Sheets provide reliable, jam-free performance for both professional and personal projects. Whether you're designing eye-catching displays, crafting detailed illustrations, or producing high-quality prints, our A3 Sheets deliver exceptional clarity and durability every time.
+    </p>
+        <br>
+   <hr>
+   <h2>Product details</h2> 
+   <div>
+    <span style="font-size: 1.2em; font-weight: bold;">Maker :</span>
+    <span style="font-size: 1em;">Classmate; Sanjeev sheets India Pvt Ltd, 113A, Ansari Road, Daryaganj, New Delhi-110002, +9111-23265358</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Sheet size :</span>
+    <span style="font-size: 1em;">A4</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Item Weight :</span>
+    <span style="font-size: 1em;">2 g</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Dimensions :</span>
+    <span style="font-size: 1em;">35.24 x 14.57 x 40.32 cm</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Country of Origin :</span>
+    <span style="font-size: 1em;">India</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Net Quantity :</span>
+    <span style="font-size: 1em;">250 count</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Importer :</span>
+    <span style="font-size: 1em;">Sanjeev sheets</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Packer :</span>
+    <span style="font-size: 1em;">Sanjeev sheet works India Pvt Ltd</span>
+  </div>
+  <div class="product-detail">
+    <span style="font-size: 1.2em; font-weight: bold;">Best Sellers Rank :</span>
+    <span style="font-size: 1em;">#1 in papers and sheets</span>
+  </div>
+  <br>
+  <hr>
+  <div class="product-review">
+    <h2>Review this product</h2>
+    <p style="font-size: 1em;">Share your thoughts with other customers</p> 
+
+    <div class="product-rating">
+        Rating: <span class="stars">
+            <span class="star" onclick="setRating(1)">★</span>
+            <span class="star" onclick="setRating(2)">★</span>
+            <span class="star" onclick="setRating(3)">★</span>
+            <span class="star" onclick="setRating(4)">★</span>
+            <span class="star" onclick="setRating(5)">★</span>
+        </span> <span id="ratingNumber"></span>
+    </div>
+
+    <script>
+
+        function setRating(rating) {
+            let stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.classList.remove('empty');
+            });
+        
+            
+            for (let i = rating; i < 5; i++) {
+                stars[i].classList.add('empty');
+            }
+        
+            document.getElementById('ratingNumber').innerText = rating;
+        
+            console.log("Rating set to: " + rating);
+        }
+    </script>
+
+    <form id="comment-form">
+        <textarea id="comment" rows="4" cols="50" placeholder="Write your review here"></textarea>
+        <br>
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+<hr>
+<div class="comments">
+    <h3>Customer Reviews</h3>
+    <div class="comment">
+        <p>Katrina:</p>
+        <p>Suitable for art.</p>
+    </div>
+    <div class="comment">
+        <p>Trevor</p>
+        <p>Muahaha</p>
+    </div>
+    <div id="comments-container"></div>
+</div>
+<hr>
+<!-- footer -->
+<div class="footer"></div>
+<script src="../../js/bottom.js"></script>
+<div class="footer-bottom">
+   <p>&copy; 2023 Learning Tree. All rights reserved.</p>
+ </div>
+<script>
+    document.getElementById("comment-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        
+        var comment = document.getElementById("comment").value;
+        var rating = document.getElementById("ratingNumber").innerText;
+
+        
+        if (comment.trim() === "") {
+            alert("Please write your review before submitting.");
+            return;
+        }
+
+        
+        var newComment = document.createElement("div");
+        newComment.classList.add("comment");
+        newComment.innerHTML = '<p id="user-name">User:</p><p>' + comment + '</p>';
+
+        
+        if (rating > 0) {
+            newComment.innerHTML += '<p>Rating: ' + generateStars(rating) + '</p>';
+        }
+
+        
+        var commentsContainer = document.getElementById("comments-container");
+        commentsContainer.appendChild(newComment);
+
+        
+        document.getElementById("comment").value = "";
+        
+        
+        document.getElementById("ratingNumber").innerText = "0";
+    });
+
+    
+    function generateStars(rating) {
+        var stars = "";
+        for (var i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars += '<span style="color: gold;">★</span>'; 
+            } else {
+                stars += '<span style="color: gold;">☆</span>'; 
+            }
+        }
+        
+        stars += ' (' + rating + ')';
+        return stars;
+    }
+
+    function setRating(rating) {
+        let stars = document.querySelectorAll('.star');
+        stars.forEach(star => {
+            star.classList.remove('empty');
+        });
+
+        for (let i = rating; i < 5; i++) {
+            stars[i].classList.add('empty');
+        }
+
+        document.getElementById('ratingNumber').innerText = rating;
+    }
+</script>
+
+
+</body>
+</html>

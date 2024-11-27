@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <script src="https://kit.fontawesome.com/f84acd84a0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/MyOrders.css">
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar"></nav>
+    <script src="../../js/nav_bar.js"></script>
+    
+    <div class="content"> 
+    <!-- orders section -->
+    <section class="orders">
+        <h1 class="heading">my orders</h1>
+        <div class="box-container">
+            <!-- box1 -->
+            <div class="box">
+               <a href="../ProductDescription/Bag6.html">
+                  <p class="date"><i class="fa fa-calendar"></i><span id="currentDate">#</span></p>
+                  <div class="image-container">
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20210901/PGkp/612e7997aeb269a268851f73/-473Wx593H-460934529-black-MODEL.jpg" class="image" alt="">
+                    <div class="quantity">1</div>
+                  </div>    
+                  <h3 class="name">Puma Pesant-class</h3>
+                  <p class="price"><i class="fas fa-indian-rupee-sign"></i>659</p>
+                  <p class="status">Arriving Today</p>
+               </a>
+            </div>
+            <!-- box2 -->
+            <div class="box">
+               <a href="../ProductDescription/ext5.html">
+                  <p class="date"><i class="fa fa-calendar"></i><span >2024-03-16</span></p>
+                  <div class="image-container">
+                    <img src="https://scooboo.in/cdn/shop/products/Classmate-InventoGeometryBox-GEOMETRYBOX-BEST-INDIA-STATIONARY-NEAR-BUY-ME-SCOOBOO.png?v=1651225285&width=1125" class="image" alt="">
+                    <div class="quantity">1</div>
+                  </div>  
+                  <h3 class="name">Classmate Geometry Box</h3>
+                  <p class="price"><i class="fas fa-indian-rupee-sign"></i>40</p>
+                  <p class="status">delivered</p>
+               </a>
+            </div>
+            <!-- box3 -->
+            <div class="box">
+               <a href="../ProductDescription/pencil5.html">
+                  <p class="date"><i class="fa fa-calendar"></i><span >2024-02-11</span></p>
+                  <div class="image-container">
+                     <img src="https://m.media-amazon.com/images/I/41pg+BNWIAL.jpg" class="image" alt="">
+                     <div class="quantity">4</div>
+                  </div>  
+                  <h3 class="name">Classmate 2B Carbon Blackt</h3>
+                  <p class="price"><i class="fas fa-indian-rupee-sign"></i>160</p>
+                  <p class="status">delivered</p>
+               </a>
+            </div>
+            <!-- box4 -->
+            <div class="box">
+               <a href="../ProductDescription/pen2.html">
+                  <p class="date"><i class="fa fa-calendar"></i><span >2024-01-27</span></p>
+                  <div class="image-container">
+                     <img src="https://luxor.in/media/catalog/product/cache/1d33a401d7d4f49c41930c20a2e836a7/9/0/9000034262_1.jpg" class="image" alt="">
+                     <div class="quantity">2</div>
+                  </div>  
+                  <h3 class="name">Luxor LX Max Cone Tip</h3>
+                  <p class="price"><i class="fas fa-indian-rupee-sign"></i>120</p>
+                  <p class="status">delivered</p>
+               </a>
+            </div>
+            <!-- box5 -->
+            <div class="box">
+               <a href="../ProductDescription/note3.html">
+                  <p class="date"><i class="fa fa-calendar"></i><span>2023-12-01</span></p>
+                  <div class="image-container">
+                     <img src="https://offimart.com/9506-large_default/classmate-pulse-1-subject-notebook-240mm-x-180mm-soft-cover-180-pages-single-line.jpg" class="image" alt="">
+                     <div class="quantity">1</div> 
+                  </div>
+                  <h3 class="name">Classmate Spiral</h3>
+                  <p class="price"><i class="fas fa-indian-rupee-sign"></i>134</p>
+                  <p class="status">delivered</p>
+               </a>
+            </div>
+            <!-- box6 -->
+            <div class="box">
+               <a href="../Biography Books/Bio1.html">
+                  <p class="date"><i class="fa fa-calendar"></i><span>2023-11-22</span></p>
+                  <div class="image-container">
+                     <img src="..\..\images\book_img\Bioimg\Steve Jobs.webp" class="image" alt="">
+                     <div class="quantity">1</div> 
+                  </div>
+                  <h3 class="name">Steve Jobs</h3>
+                  <p class="price"><i class="fas fa-indian-rupee-sign"></i>500</p>
+                  <p class="status">delivered</p>
+               </a>
+            </div>
+        </div>
+    </section>
+   </div>
+   <script>
+      var today = new Date();
+      var date = today.getFullYear()+'-'+(today.getMonth()+1).toString().padStart(2, '0')+'-'+today.getDate().toString().padStart(2, '0');
+      document.getElementById("currentDate").innerHTML = date;
+   </script>
+   <!-- footer -->
+   <div class="footer"></div>
+   <script src="../../js/bottom.js"></script>
+   <div class="footer-bottom">
+      <p>&copy; 2023 Learning Tree. All rights reserved.</p>
+    </div>
+</body>
+</html>
